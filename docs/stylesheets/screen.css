@@ -1,0 +1,11 @@
+body {background: #603d41 url('../images/body_bg.png') repeat scroll 0 0;}
+#wrap{width:100%; background: transparent url('../images/wrap_bg.png') repeat-x scroll 0 0;}
+#header {height: 117px; width: 100%; background: transparent url('../images/header_bg.png') no-repeat scroll 0 0;}
+  #candle {height:200px; width:200px; float:left;}
+  #logo {position:absolute; top:-55px; left:-50px; width: 700px; height: 117px;}
+  #logo img { position: absolute; top: 90px; left: 150px; width: 400px;}
+  #phrase {width: auto; float:right; padding-right: 40px;}
+#content {padding-top:40px;}
+#main {background: transparent url('../images/vertical_line.png') repeat-y scroll 100% 0;}
+.wrap_content {padding:0 35px 0 35px;}
+#footer {background: transparent url('../images/wrap_bg.png') repeat-x scroll 0 0; padding:20px 0;}
