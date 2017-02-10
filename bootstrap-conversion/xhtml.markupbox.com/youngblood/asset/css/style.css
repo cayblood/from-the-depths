@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+	font-family: 'Georgia';
+	src: url('fonts/Georgia.eot.html');
+	src: local('☺'), url('fonts/Georgia.woff.html') format('woff'), url('fonts/Georgia.ttf.html') format('truetype'), url('fonts/Georgia.svg.html') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Times New Roman';
+	src: url('fonts/times-new-roman.eot.html');
+	src: local('☺'), url('fonts/times-new-roman.woff.html') format('woff'), url('fonts/times-new-roman.ttf.html') format('truetype'), url('fonts/times-new-roman.svg.html') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'helvetica';
+	src: url('fonts/helvetica.eot.html');
+	src: local('☺'), url('fonts/helvetica.woff.html') format('woff'), url('fonts/helvetica.ttf.html') format('truetype'), url('fonts/helvetica.svg.html') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { border: 0;font-weight: inherit;    font-style: inherit;font-size: 100%;font-family: inherit;vertical-align: baseline;margin: 0;padding: 0;}
+dl dt, th, strong, dfn {font-weight: 700;font-family: inherit;}
+tfoot, em, dfn {font-style: italic; font-family:inherit;}
+h1,h2{font-weight:400;color:#f5e6e7;font-family:Georgia, "Times New Roman", serif;letter-spacing:1px;word-spacing:.1em;}
+tr, th, td {font-size-adjust: none;font-style: normal;font-variant: normal;color: #d8bbbe;text-shadow: #3e2427 0 1px 0;height: 18px;margin: 0;padding: 0 1.5em 0 1em;}
+table, td, th {vertical-align: middle;}
+caption, th, td {text-align: left;}
+h3,h4,h5,h6{font-weight:400; color:#f5e6e7; font-family:Georgia, "Times New Roman", serif;}
+h1{font-size:2.2em;margin-bottom:.45em;}
+h2{font-size:1.9em;margin-bottom:.79em;}
+h3{font-size:1.7em;margin-bottom:.882em;}
+h4{font-size:1.4em;margin-bottom:1.071em;}
+h5,h6{font-size:1.3em;margin-bottom:1em;}
+a{color:#fff4a8;text-decoration:underline;font: 90%/1.4em Arial, Helvetica, sans-serif;}
+a:focus, a:hover{color:#fff4a8;text-decoration:none;}
+del {color: #000;}
+ul, ol { margin: 0 1.5em 1.5em;}
+p {color: #d8bbbe;text-shadow: #3e2427 0 1px 0;word-spacing: .08em;letter-spacing: .03em; padding: 0 0 1em 1em;}
+body {font: 90%/1.4em Arial, Helvetica, sans-serif;font-size-adjust: none;font-style: normal;font-variant: normal;font-weight: 400;color: #d8bbbe;text-shadow: #3e2427 0 1px 0;background: #603d41 url('../images/body_bg.png') repeat scroll 0 0;}
+.blockquote {padding-left: 1.5em;border-left: 3px solid #ccc;font-style: italic;margin:1.5em;  font-size: 1em;}
+caption {text-align: center;font-family: Georgia, serif;display: table-caption;text-align:center;color: inherit;caption-side: top;}
+tfoot td{font-style: italic;}
+header{
+    height: 126px;
+    width: 100%;
+    background: transparent url('../images/header_bg.png') no-repeat scroll 0 0;
+    background-position:50% 50%;
+    background-size:cover;
+    box-shadow: -8px -6px 25px #000;
+    border-bottom: 9px solid #5D393D;
+    margin-bottom: 25px;
+}
+.ygsection .row {display:block !important;}
+footer{background: rgb(57, 32, 35) url('../images/wrap_bg.png') repeat-x scroll 0 0;
+    padding: 20px 0;}
+.wrap_content {padding: 0 35px 0 35px;}
+header .logo{width: 100%;}
+header .logo .logo-video{width: 83px;height: 100px;overflow: hidden;display: inline-block;  position: relative;float: left;}
+header .logo .logo-img{display: inline-block;vertical-align: middle;float: left;padding:36px 0;}
+header .logo img{max-width: 399px;height:auto;width: 100%;}
+header .video-icon{height: 200px;width: 200px;float: left;margin-left: -69px;margin-top: -59px;zoom: 1.1;}
+header #phrase {font-weight: 400;color: #A5777B;font-family: Georgia, "Times New Roman", serif;font-style: italic;font-size: 1.3em;padding: 50px 20px 30px;text-align: right;}
+.ygsection .border-right{border-right:1px dotted #A5777B; }
+.content ul,.content ol{color:#d8bbbe;padding:0;text-shadow: #3e2427 0 1px 0;font-size: 1em;}
+.navbar .navbar-toggler{background-size:contain; width:33px;outline:none;margin-top:-153px;opacity: 0.8;}
+.navbar .navbar-toggler{background:url('../images/cross-symbol.png'); background-repeat:no-repeat;}
+.navbar .navbar-toggler.collapsed{background:url('../images/menu-toggle.png'); background-repeat:no-repeat;}
+nav.navbar.navbar-toggleable-md{display: none;width:100%;}
