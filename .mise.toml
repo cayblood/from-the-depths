@@ -1,0 +1,11 @@
+[tools]
+node = "20"
+pnpm = "10.24.0"
+
+[tasks]
+dev = "pnpm run dev"
+build = "pnpm run build"
+preview = "pnpm run preview"
+lint = "pnpm run lint"
+typecheck = "pnpm run typecheck"
+

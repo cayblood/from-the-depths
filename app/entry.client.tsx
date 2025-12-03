@@ -1,18 +1,31 @@
-/**
- * By default, Remix will handle hydrating your app on the client for you.
- * You are free to delete this file if you'd like to, but if you ever want it revealed again, you can run `npx remix reveal` ✨
- * For more information, see https://remix.run/file-conventions/entry.client
- */
+import { StrictMode, startTransition } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./root";
+import Index from "./routes/_index";
 
-import { RemixBrowser } from "@remix-run/react";
-import { startTransition, StrictMode } from "react";
-import { hydrateRoot } from "react-dom/client";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <Index />,
+      },
+    ],
+  },
+]);
 
 startTransition(() => {
-  hydrateRoot(
-    document,
+  const rootElement = document.getElementById("root");
+  if (!rootElement) {
+    throw new Error("Root element not found");
+  }
+  const root = createRoot(rootElement);
+  root.render(
     <StrictMode>
-      <RemixBrowser />
+      <RouterProvider router={router} />
     </StrictMode>
   );
 });

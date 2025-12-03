@@ -1,6 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --color-umber: rgb(165 119 123);
+}
+
+.text-umber {
+  --tw-text-opacity: 1;
+  color: rgb(141 95 99 / var(--tw-text-opacity));
+}
 
 html,
 body {
@@ -9,4 +19,132 @@ body {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-[#f5e6e7] font-serif;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+h1:not(:first-child) {
+  margin-top: 40px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+h2:not(:first-child) {
+  margin-top: 40px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+h3:first-child {
+  margin-top: 0;
+}
+
+h3:not(:first-child) {
+  margin-top: 40px;
+}
+
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
+}
+
+h4:not(:first-child),
+h5:not(:first-child),
+h6:not(:first-child) {
+  margin-top: 40px;
+}
+
+p {
+  @apply text-[#d8bbbe];
+  font-family: Georgia, "Times New Roman", serif;
+  text-shadow: #3e2427 0 1px 0;
+  margin-bottom: 15px;
+  line-height: 28px;
+}
+
+blockquote {
+  @apply text-[#d8bbbe];
+  font-family: Georgia, "Times New Roman", serif;
+  border-left: 4px solid #f5e6e7;
+  padding-left: 1em;
+  margin: 30px 3em 30px 2em;
+  font-style: italic;
+}
+
+a {
+  color: #fff4a8;
+  text-decoration: underline;
+}
+
+ul,
+ol {
+  margin-left: 20px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  @apply text-[#d8bbbe];
+  list-style-position: inside;
+}
+
+table {
+  @apply text-[#d8bbbe];
+  table-layout: auto;
+  width: 75%;
+  text-align: left;
+  border-collapse: collapse;
+  margin: 2rem auto;
+}
+
+table caption {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+table thead {
+  border-bottom-width: 2px;
+  border-color: rgb(216 187 190);
 }

@@ -1,51 +1,45 @@
-# templates/spa
+# youngbloods-org
 
-This template leverages [Remix SPA Mode](https://remix.run/docs/en/main/guides/spa-mode) to build your app as a Single-Page Application using [Client Data](https://remix.run/docs/en/main/guides/client-data) for all of your data loads and mutations.
+This application uses [React Router v7](https://reactrouter.com/) with [Vite](https://vitejs.dev/) to build a Single-Page Application.
 
-## Setup
+## Development Environment
+
+This project uses [mise](https://mise.jdx.dev/) (formerly rtx) for managing development tools and versions. Make sure you have mise installed, then run:
 
 ```shellscript
-npx create-remix@latest --template remix-run/remix/templates/spa
+mise install
 ```
+
+This will install the required Node.js version and other tools specified in `.mise.toml`.
 
 ## Development
 
-You can develop your SPA app just like you would a normal Remix app, via:
+Always use the "mise exec" prefix when running pnpm.
+
+Start the development server:
 
 ```shellscript
-npm run dev
+mx pnpm run dev
 ```
 
 ## Production
 
-When you are ready to build a production version of your app, `npm run build` will generate your assets and an `index.html` for the SPA.
+Build the production version:
 
 ```shellscript
-npm run build
+mx pnpm run build
 ```
+
+This will generate optimized production assets in the `dist` directory.
 
 ### Preview
 
-You can preview the build locally with [vite preview](https://vitejs.dev/guide/cli#vite-preview) to serve all routes via the single `index.html` file:
+Preview the production build locally:
 
 ```shellscript
-npm run preview
-```
-
-> [!IMPORTANT]
->
-> `vite preview` is not designed for use as a production server
-
-### Deployment
-
-You can then serve your app from any HTTP server of your choosing. The server should be configured to serve multiple paths from a single root `/index.html` file (commonly called "SPA fallback"). Other steps may be required if the server doesn't directly support this functionality.
-
-For a simple example, you could use [sirv-cli](https://www.npmjs.com/package/sirv-cli):
-
-```shellscript
-npx sirv-cli build/client/ --single
+mx pnpm run preview
 ```
 
 ## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+This project uses [Tailwind CSS](https://tailwindcss.com/) for styling. See the [Vite docs on CSS](https://vitejs.dev/guide/features.html#css) for more information.
