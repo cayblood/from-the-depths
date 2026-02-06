@@ -1,7 +1,6 @@
 export function Sidebar() {
   return (
     <div id="sidebar" className="flex-none w-72">
-      <h3 className="text-xl font-semibold text-[#d8bbbe]">About</h3>
       <div className="mt-4 w-48 aspect-square overflow-hidden rounded-sm shrink-0 mx-auto">
         <img
           src="/carl-hedcut.webp"

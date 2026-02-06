@@ -173,7 +173,7 @@ async function processBlogPosts(): Promise<void> {
       feed.item({
         title: post.title,
         description: post.description || post.preview || "",
-        url: `https://youngbloods.org/blog/${post.slug}`,
+        url: `https://youngbloods.org/${post.slug}`,
         guid: post.slug,
         date: new Date(post.datePublished),
         categories: post.tags,

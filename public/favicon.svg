@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Outer Flame (Orange) -->
+  <path d="M16 2 C16 2 4 14 4 20 C4 26 9.37 30 16 30 C22.63 30 28 26 28 20 C28 14 16 2 16 2 Z" fill="#FF9800"/>
+  <!-- Inner Flame Core (Yellow) -->
+  <path d="M16 8 C16 8 11 15 11 19 C11 22 13.24 24 16 24 C18.76 24 21 22 21 19 C21 15 16 8 16 8 Z" fill="#FFEB3B"/>
+</svg>

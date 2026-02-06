@@ -17,7 +17,7 @@ function ensureIndexHtml(): Plugin {
     closeBundle() {
       const indexPath = resolve(__dirname, "index.html");
       const outputPath = resolve(__dirname, "dist/client/index.html");
-      
+
       if (existsSync(indexPath) && !existsSync(outputPath)) {
         copyFileSync(indexPath, outputPath);
         console.log("✓ Copied index.html to dist/client");

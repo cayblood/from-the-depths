@@ -89,7 +89,7 @@ export default function BlogPostPage() {
   useEffect(() => {
     if (post) {
       const baseUrl = "https://youngbloods.org";
-      const postUrl = `${baseUrl}/blog/${post.slug}`;
+      const postUrl = `${baseUrl}/${post.slug}`;
 
       // Basic meta tags
       document.title = `${post.title} - From the Depths`;
