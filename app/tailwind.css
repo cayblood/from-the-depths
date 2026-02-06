@@ -95,6 +95,40 @@ p {
   line-height: 28px;
 }
 
+/* Ensure prose paragraphs use serif font and match regular paragraph styling */
+.prose,
+.prose-invert {
+  font-family: Georgia, "Times New Roman", serif !important;
+}
+
+/* Override all possible prose paragraph selectors */
+.prose p,
+.prose-invert p,
+.prose > p,
+.prose-invert > p,
+.prose p:not(.drop-cap),
+.prose-invert p:not(.drop-cap),
+div.prose p,
+div.prose-invert p {
+  font-family: Georgia, "Times New Roman", serif !important;
+  line-height: 28px !important;
+  text-shadow: #3e2427 0 1px 0 !important;
+  margin-bottom: 15px !important;
+}
+
+/* Override any Tailwind Typography line-height utilities */
+.prose p[class*="leading"],
+.prose-invert p[class*="leading"] {
+  line-height: 28px !important;
+}
+
+/* Additional specificity for preview paragraphs */
+article .prose p,
+article .prose-invert p {
+  line-height: 28px !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+}
+
 /* Subtitle styling - sits directly under post title */
 p.subtitle {
   font-size: 1.125rem; /* text-lg - reduced for contrast with title */
@@ -269,7 +303,6 @@ table thead {
 
 /* Drop cap paragraph styling */
 .drop-cap {
-  font-family: Georgia, "Times New Roman", serif;
   @apply text-[#d8bbbe];
   text-shadow: #3e2427 0 1px 0;
   margin-bottom: 15px;
@@ -290,7 +323,6 @@ table thead {
 
 /* Drop cap with leading quote */
 .drop-cap-quoted {
-  font-family: Georgia, "Times New Roman", serif;
   @apply text-[#d8bbbe];
   text-shadow: #3e2427 0 1px 0;
   margin-bottom: 15px;

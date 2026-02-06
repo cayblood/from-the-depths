@@ -37,6 +37,9 @@ export function BlogPostPreview({ post }: BlogPostPreviewProps) {
       {post.preview && (
         <div
           className="text-[#d8bbbe] mb-4 prose prose-invert max-w-none"
+          style={{
+            fontFamily: 'Georgia, "Times New Roman", serif',
+          }}
           // biome-ignore lint/security/noDangerouslySetInnerHtml: preview HTML is from our MDX via contentToHtml, not user input
           dangerouslySetInnerHTML={{
             __html: contentToHtml(post.preview),

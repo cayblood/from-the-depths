@@ -52,9 +52,7 @@ export function contentToHtml(content: string): string {
   let result = convertDropCap(content);
   result = convertTwoColumn(result);
   result = stripMdxTags(result);
-  const trimmed = result.trim();
-  if (trimmed.startsWith("<") && !/^\s*#+\s|^\s*[-*+]\s|^\s*\d+\.\s/m.test(trimmed)) {
-    return trimmed;
-  }
+  // Always process through markdown-it to ensure all paragraphs are wrapped
+  // even if the content already contains some HTML
   return md.render(result);
 }
