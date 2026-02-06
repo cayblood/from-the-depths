@@ -98,7 +98,7 @@ p {
 /* Ensure prose paragraphs use serif font and match regular paragraph styling */
 .prose,
 .prose-invert {
-  font-family: Georgia, "Times New Roman", serif !important;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 /* Override all possible prose paragraph selectors */
@@ -110,23 +110,23 @@ p {
 .prose-invert p:not(.drop-cap),
 div.prose p,
 div.prose-invert p {
-  font-family: Georgia, "Times New Roman", serif !important;
-  line-height: 28px !important;
-  text-shadow: #3e2427 0 1px 0 !important;
-  margin-bottom: 15px !important;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 28px;
+  text-shadow: #3e2427 0 1px 0;
+  margin-bottom: 15px;
 }
 
 /* Override any Tailwind Typography line-height utilities */
 .prose p[class*="leading"],
 .prose-invert p[class*="leading"] {
-  line-height: 28px !important;
+  line-height: 28px;
 }
 
 /* Additional specificity for preview paragraphs */
 article .prose p,
 article .prose-invert p {
-  line-height: 28px !important;
-  font-family: Georgia, "Times New Roman", serif !important;
+  line-height: 28px;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 /* Subtitle styling - sits directly under post title */

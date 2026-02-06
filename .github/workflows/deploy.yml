@@ -38,6 +38,9 @@ jobs:
       - name: Build with React Router
         run: bun run build
 
+      - name: Copy index.html to 404.html for GitHub Pages SPA routing
+        run: cp dist/client/index.html dist/client/404.html
+
       - name: Ensure .nojekyll exists
         run: touch dist/client/.nojekyll
 
