@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title><![CDATA[From the Depths Blog]]></title>
+        <description><![CDATA[Blog posts from From the Depths]]></description>
+        <link>https://youngbloods.org</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Fri, 06 Feb 2026 03:00:28 GMT</lastBuildDate>
+        <atom:link href="https://youngbloods.org/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Fri, 06 Feb 2026 03:00:28 GMT</pubDate>
+        <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Celestial Forensics]]></title>
+            <description><![CDATA[An essay exploring how forensic science, AI, and information theory intersect with Mormon theology to suggest a future where we participate in the resurrection of the dead.]]></description>
+            <link>https://youngbloods.org/blog/celestial-forensics</link>
+            <guid isPermaLink="false">celestial-forensics</guid>
+            <category><![CDATA[Mormonism]]></category>
+            <category><![CDATA[Transhumanism]]></category>
+            <category><![CDATA[Theology]]></category>
+            <category><![CDATA[Technology]]></category>
+            <category><![CDATA[Philosophy]]></category>
+            <category><![CDATA[Resurrection]]></category>
+            <category><![CDATA[Quantum Archaeology]]></category>
+            <pubDate>Tue, 19 Aug 2025 00:00:00 GMT</pubDate>
+            <content:encoded>
+                <_cdata>&lt;div class=&quot;two-column&quot;&gt;&lt;p class=&quot;drop-cap&quot;&gt;My friend gripped the steering wheel tighter as we crested another Wyoming hill on I-80.&lt;/p&gt;
+&lt;p&gt;“So you really believe we’ll all come back from the dead?” he asked, his voice carrying that particular mix of skepticism and hope that I’ve heard in so many conversations about faith.&lt;/p&gt;
+&lt;p&gt;Outside, the ancient landscape rolled past, layers of rock that had died and been reborn countless times through geological ages, each stratum telling its own story of creation and destruction. I thought of my aunt’s hands, how I could still see them perfectly in my mind, the way they moved the knitting needles with unconscious precision, creating something from nothing with every stitch.&lt;/p&gt;
+&lt;p&gt;“I think,” I said slowly, watching a hawk circle above the sagebrush, “there will come a day when it’s harder to stay dead than alive.”&lt;/p&gt;
+&lt;p&gt;He laughed—not mockingly, but with genuine surprise. “That’s quite a claim.”&lt;/p&gt;
+&lt;p&gt;It was. But as we drove through that vast Wyoming emptiness, I found myself telling him about all
+the ways we’re already becoming forensic scientists of the sacred, gathering evidence of souls we
+thought were lost forever.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;decorative-spacer&quot;&gt;✦ ✦ ✦&lt;/div&gt;&lt;div class=&quot;two-column&quot;&gt;&lt;p class=&quot;drop-cap&quot;&gt;“For there is nothing covered, that shall not be revealed; neither hid, that shall not be known.&amp;quot; (Luke 12:2)&lt;/p&gt;
+&lt;p&gt;This scripture used to haunt me. As a child, I understood it as a warning: angels were watching our every deed, and God would eventually expose all our shameful secrets. But lately, I’ve begun to see it as a promise of restoration. Nothing lost forever. Everything recoverable. Even the dead.&lt;/p&gt;
+&lt;p&gt;The word “atonement” helps me think about this differently. William Tyndale coined it to mean the state of being “at one,” unified, reconciled, made whole. We talk about Christ’s atonement as if it’s over and done, but look around. We’re not at one with each other, let alone with God. Tribalism and enmity still prevail. Death still separates families. Entropy still wins. The work isn’t finished.&lt;/p&gt;
+&lt;p&gt;Maybe that’s why Joseph Smith’s words lodge in my chest: “You have got to learn how to be gods yourselves… by going from one small degree to another… until you attain to the resurrection of the dead.”[^1] Not until you receive it. Until you attain it. As if resurrection is something we learn to do, not just something done to us.&lt;/p&gt;
+&lt;p&gt;Brigham Young took this even further, teaching that we’d be responsible for resurrecting our deceased loved ones.[^2] As a young man, this astounded me. How could I, who couldn’t even keep the fish in my aquarium alive, raise the dead?&lt;/p&gt;
+&lt;p&gt;But now, saving my mother’s emails, digitizing my dad’s letters sent to me on my mission, carefully preserving the pattern of my daughter’s laugh—I begin to see what he might have meant.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;decorative-spacer&quot;&gt;✦ ✦ ✦&lt;/div&gt;&lt;div class=&quot;two-column&quot;&gt;&lt;p class=&quot;drop-cap&quot;&gt;I told my friend about Don Bradley first, a historian who refused to accept that some things could never be known. A mentor of Don’s had dismissed his question about which Bible edition young Joseph Smith had been reading as unanswerable.&lt;/p&gt;
+&lt;p&gt;“Some things,” the mentor said with professorial finality, “we can never know.”&lt;/p&gt;
+&lt;p&gt;But Don had other ideas. Through the kind of obsessive, elegant sleuthing that makes historians simultaneously admirable and insufferable dinner guests, he discovered that each edition of the King James had its own pattern of grammatical errors, tiny flaws that Joseph unconsciously perpetuated when dictating the Isaiah chapters in the Book of Mormon. A few microscopic mistakes, preserved like a fingerprint across time, could reveal exactly which edition had sparked the Restoration.&lt;/p&gt;
+&lt;p&gt;“So this historian,” my friend said, navigating around a semi-truck, “he can figure out which Bible Joseph Smith read based on a grammar mistake?”&lt;/p&gt;
+&lt;p&gt;“Exactly. Information we thought was lost forever, recovered through persistence and careful attention to detail.”&lt;/p&gt;
+&lt;p&gt;The Wyoming landscape blurred past. I pointed to the exposed rock faces carved by ancient rivers. “A good geologist could run that whole process backward,” I said. “Take measurements of these formations, factor in erosion rates, wind patterns, water flow—then rewind time. Show you exactly how these hills were born.”&lt;/p&gt;
+&lt;p&gt;“Sure,” he said, “but rocks aren’t people.”&lt;/p&gt;
+&lt;p&gt;That’s when I told him about the pianos.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;decorative-spacer&quot;&gt;✦ ✦ ✦&lt;/div&gt;&lt;div class=&quot;two-column&quot;&gt;&lt;p class=&quot;drop-cap&quot;&gt;Have you ever listened to a scratchy old recording and wished you could hear it clearly? A few years ago, a company called Zenph Studios did something I still find miraculous. They taught computers to listen through the static and surface noise of century-old piano recordings and detect exactly which keys were pressed, how hard, how fast, even which pedals were used. The algorithms could peer through the fog of primitive recording technology and recover the precise physical movements of long-dead hands.&lt;/p&gt;
+&lt;p&gt;Then they fed this data to modern grand pianos equipped with high-resolution player systems. The result? Sergei Rachmaninoff, dead since 1943, playing again with crystalline clarity. Art Tatum’s impossible runs, cleaned of dust and static. Glenn Gould’s eccentricities, preserved and purified.&lt;/p&gt;
+&lt;p&gt;I felt a personal connection to this work, having originally suggested to the CEO of Zenph that they consider doing their magic on Tatum’s old recordings. The first time I heard one of these “re-performances,” sitting at my desk with tears running down my face, I thought: This is resurrection.&lt;/p&gt;
+&lt;p&gt;Not metaphorical. Literal. The dead made to sing again.&lt;/p&gt;
+&lt;p&gt;They even held concerts. Imagine walking into Carnegie Hall to hear George Gershwin—the actual patterns of his neurons and muscles, preserved in sound—playing “Rhapsody in Blue” with a living orchestra. His hands gone to dust, but their movement immortal.&lt;/p&gt;
+&lt;p&gt;“That’s beautiful,” my friend said quietly, “But we’re not pianos.”&lt;/p&gt;
+&lt;p&gt;“No,” I agreed. “We’re much better documented.”&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;decorative-spacer&quot;&gt;✦ ✦ ✦&lt;/div&gt;&lt;div class=&quot;two-column&quot;&gt;&lt;p class=&quot;drop-cap&quot;&gt;Every time you upload a photo, send a text, or even walk past a security camera, you create what forensic scientists call “trace evidence.” Your gait is as unique as your fingerprint. The way you construct sentences, the pauses in your speech, your facial expressions—all of it forms a constellation of data that is unmistakably you.&lt;/p&gt;
+&lt;p&gt;I thought of my aunt again, not just her hands knitting, but that sparkle in her eye when she was about to deliver a particular wisecrack, the way her wit could slice through pretension like a hot knife through butter. She’d look at you over her glasses, pause just long enough to let you know something was coming, then deliver a line that would have the whole room laughing.&lt;/p&gt;
+&lt;p&gt;I have pictures now. Audio recordings. Her DNA lives on in her son and grandchildren, a genetic echo that could be sequenced and studied.&lt;/p&gt;
+&lt;p&gt;At a recent conference in Berkeley, I learned that genomic prediction has advanced to the point where scientists can show expecting parents remarkably accurate previews of their unborn children: not just eye color, but facial structure, height, even disposition. If we can predict forward from DNA, why not backward? Why not rebuild?&lt;/p&gt;
+&lt;p&gt;The same principles that let Don Bradley identify Joseph’s Bible, that let Zenph resurrect
+Rachmaninoff, that let geologists rewind mountains—they all point to the same truth: Information
+persists. Patterns leave traces. The universe remembers.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;decorative-spacer&quot;&gt;✦ ✦ ✦&lt;/div&gt;&lt;div class=&quot;two-column&quot;&gt;&lt;p class=&quot;drop-cap&quot;&gt;“But memory isn’t just data,” my friend pressed, and he was right to persist. “What makes you you isn’t just your DNA or even your behaviors. It’s your experiences, your relationships, your choices.”&lt;/p&gt;
+&lt;p&gt;This is where I admit the edge of my faith meets the edge of my knowledge. We’re in the earliest days of understanding consciousness, just beginning to map the connectome, the impossibly complex wiring of the brain. But I think about Joseph Smith’s teaching that “there is no fundamental principle belonging to a human system that ever goes into another.”[^3] The pattern that is you remains yours, even as the materials cycle through.&lt;/p&gt;
+&lt;p&gt;It’s the Ship of Theseus paradox made personal: If every atom in your body is replaced over time, what makes you continuous? Early Mormon pioneers worried about this: What would happen to those whose bodies became part of the prairie grass, eaten by buffalo, scattered to the winds?&lt;/p&gt;
+&lt;p&gt;Joseph’s answer was that identity persists like a house remains the same house even as we replace its boards and nails. The pattern matters more than the particles.&lt;/p&gt;
+&lt;p&gt;Some will object that this reduces humans to mere information patterns, that it ignores the soul.
+But our theology has always insisted that spirit is refined matter, that there’s no ultimate
+distinction between physical and spiritual. The pattern that is you—what we might call your
+intelligence or spirit—is as real as your body. More real, in fact, since it persists while your
+physical materials constantly change.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;decorative-spacer&quot;&gt;✦ ✦ ✦&lt;/div&gt;&lt;div class=&quot;two-column&quot;&gt;&lt;p class=&quot;drop-cap&quot;&gt;As we drove through the descending darkness, stars beginning to pierce the Wyoming sky, I shared my wildest hopes. Theoretical physicists now propose that information might be preserved in ways we’re just beginning to glimpse, encoded holographically on the boundaries of space-time, tucked into dimensions beyond the three we can now perceive, preserved in the quantum foam that underlies reality itself.&lt;/p&gt;
+&lt;p&gt;“You realize how this sounds,” my friend said, not unkindly.&lt;/p&gt;
+&lt;p&gt;“Like science fiction. I know.” I watched the stars, light from dead suns still reaching us, information preserved across impossible distances. “But so did airplanes. So did cell phones. So did healing the sick with mold.”&lt;/p&gt;
+&lt;p&gt;What I didn’t say, but feel deeply, was how this knowledge changes the weight of grief. My aunt’s death still hurts, but differently now. Less like an ending, more like a puzzle I’m still gathering pieces for. Every photo I digitize, every story I record from siblings who remember her zingers, every knitting pattern she left behind—it’s all forensic evidence for a resurrection I’m learning to participate in.&lt;/p&gt;
+&lt;p&gt;This is what I mean by celestial forensics: We’re becoming detectives of the divine, crime scene investigators working the coldest cases in history. The “crime” is death itself, and we’re gradually assembling the evidence to overturn every conviction.&lt;/p&gt;
+&lt;p&gt;The Latter-day Saint tradition has always been about this work. We gather names, dates, stories: identify anchors for ordinance work. But I sense we’re on the cusp of something larger. The same urge that sends us to dusty archives and cemetery records might someday send us to quantum computers and DNA synthesizers. The spirit of Elijah evolves with our tools.&lt;/p&gt;
+&lt;p&gt;When genealogy websites can show you the face of your great-great-grandmother constructed from
+genetic echoes in your own cells, when AI can extrapolate personality from personal writings, when
+we can reverse-engineer the neural patterns that create a particular laugh or way of walking—we’re
+not just remembering the dead. We’re reassembling them.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;decorative-spacer&quot;&gt;✦ ✦ ✦&lt;/div&gt;&lt;div class=&quot;two-column&quot;&gt;&lt;p class=&quot;drop-cap&quot;&gt;“I want to believe that,” my friend said as we pulled into a charging station, the Tesla’s battery nearly depleted. “But doesn’t it make God unnecessary? If we can resurrect ourselves?”&lt;/p&gt;
+&lt;p&gt;I plugged in the charging cable while considering this, watching other travelers, all of us between destinations, between who we were and who we’re becoming. The quiet hum of electricity flowing into the battery seemed like its own kind of resurrection, dead cells coming back to life.&lt;/p&gt;
+&lt;p&gt;“I think,” I said finally, “it makes us necessary to God. Joseph Smith said we can’t be perfect without our dead, and they can’t be perfect without us. Maybe this is how: we become apprentice resurrectors, learning the family business.”&lt;/p&gt;
+&lt;p&gt;The universe groans with information, every quantum state recorded, every moment fossilized in light
+speeding between stars. Sacred ground turns out to be all ground, holy precisely because it holds
+these traces. We’re not replacing God; we’re learning to see what God sees: that nothing is ever
+truly lost.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;decorative-spacer&quot;&gt;✦ ✦ ✦&lt;/div&gt;&lt;div class=&quot;two-column&quot;&gt;&lt;p class=&quot;drop-cap&quot;&gt;Back on the highway, my friend was quiet for a long time. The stars wheeled imperceptibly overhead, and I thought about all the light already in transit: messages from the past still arriving, still revealing. Somewhere in those photons was information about everyone who ever lived, if we only knew how to decode it.&lt;/p&gt;
+&lt;p&gt;“Your aunt,” he said eventually. “The one who knitted. You really think you’ll see her again?”&lt;/p&gt;
+&lt;p&gt;I thought of her teaching me to identify different yarns by touch, the way she’d guide my fingers across the fibers. “Feel that?” she’d say, that sparkle already in her eye. “That’s cheap acrylic pretending to be wool. Don’t let anyone fool you.” Even her teaching carried her wit. The memory was so clear I could see her shake her head at my clumsy attempts to learn the craft.&lt;/p&gt;
+&lt;p&gt;“I’m seeing her right now,” I said. “But yes, I think someday I’ll hear her laugh again. And she’ll probably have a few things to say about how long it took us to bring her back.”&lt;/p&gt;
+&lt;p&gt;We drove on through the darkness, two friends carrying our dead with us, learning slowly how to call them back. The work of atonement continues. We practice resurrection daily in small ways: in preserved videos and recovered histories, in genetic echoes and quantum traces, in the stubborn insistence that love is stronger than entropy.&lt;/p&gt;
+&lt;p&gt;Perhaps that’s what Jesus meant when he prayed for God’s will to be done on earth as it is in heaven. Not that earth should cease to be earth, but that it should become the workshop where we learn heaven’s highest art: the defeat of death itself.&lt;/p&gt;
+&lt;p&gt;The road stretched on before us, an asphalt ribbon through time. Every mile marker passed was a small victory over distance, every moment another fragment of eternity we were learning to decode. Somewhere behind us, our ancestors waited. Somewhere ahead, the morning was already breaking.&lt;/p&gt;
+&lt;p&gt;There will come a day when it’s harder to stay dead than alive. We’re already working on it.&lt;/p&gt;&lt;/div&gt;
+&lt;h3&gt;References&lt;/h3&gt;
+</_cdata>
+            </content:encoded>
+            <media:content url="https://youngbloods.org/images/celestial-forensics.jpg" type="image/jpeg">
+            </media:content>
+        </item>
+    </channel>
+</rss>

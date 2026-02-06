@@ -1,6 +1,28 @@
+# Dependencies
 node_modules
 
+# Build output
+dist
 /.cache
 /build
 /public/build
+
+# Generated (React Router types, blog plugin JSON)
+.react-router
+app/generated
+
+# Environment
 .env
+.env.local
+.env.*.local
+
+# Logs and debug
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+
+# Editor / IDE (optional: remove .vscode if you share workspace settings)
+.idea
+*.iml
