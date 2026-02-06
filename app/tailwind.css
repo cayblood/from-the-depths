@@ -47,6 +47,15 @@ h1:not(:first-child) {
   margin-top: 40px;
 }
 
+/* "Posts tagged: ___" heading: smaller, sans serif */
+h1.tag-filter-heading {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
 h2 {
   font-size: 1.5rem;
   line-height: 2rem;

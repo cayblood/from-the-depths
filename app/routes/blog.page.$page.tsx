@@ -39,7 +39,13 @@ export default function BlogPage() {
     <main className="bg-[rgb(96,61,65)] px-6 pt-4 md:px-12 lg:pt-8 pb-12">
       <div className="flex flex-col lg:flex-row">
         <div id="main-content" className="grow lg:mr-12">
-          <h1 className="text-4xl font-bold mb-8 text-[#d8bbbe]">
+          <h1
+            className={
+              tagFilter
+                ? "tag-filter-heading text-[#d8bbbe] mb-8"
+                : "text-4xl font-bold mb-8 text-[#d8bbbe]"
+            }
+          >
             {tagFilter ? `Posts tagged: ${tagFilter}` : "Blog"}
           </h1>
 
