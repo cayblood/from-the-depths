@@ -382,8 +382,7 @@ table thead {
     column-gap: 2.5rem;
   }
 
-  /* Prevent elements from breaking across columns */
-  .two-column p,
+  /* Allow paragraphs to split between columns for better balance; keep other blocks intact */
   .two-column blockquote,
   .two-column pre,
   .two-column ul,
