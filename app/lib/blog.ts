@@ -36,14 +36,10 @@ export interface BlogTags {
 
 /**
  * Extract slug from filename format: YYYY-MM-DD-title-goes-here.mdx
+ * Returns the full filename without extension so URLs include the date (e.g. 2025-08-19-celestial-forensics).
  */
 export function extractSlugFromFilename(filename: string): string {
-  // Remove .mdx extension
-  const withoutExt = filename.replace(/\.mdx$/, "");
-  // Remove date prefix (YYYY-MM-DD-)
-  const datePattern = /^\d{4}-\d{2}-\d{2}-/;
-  const slug = withoutExt.replace(datePattern, "");
-  return slug;
+  return filename.replace(/\.mdx$/, "");
 }
 
 /**
