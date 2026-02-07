@@ -25,9 +25,16 @@ function convertDropCap(content: string): string {
   });
 }
 
+/** Strip TwoColumn right={...} prop so convertTwoColumn can match and preview/RSS don't show stray chars */
+function stripTwoColumnRightProp(content: string): string {
+  // Match right={<Anything />} so the rest of the pipeline sees <TwoColumn>...</TwoColumn>
+  return content.replace(/\s*right=\{[^}]*\/>\s*\}/g, "");
+}
+
 function convertTwoColumn(content: string): string {
+  let normalized = stripTwoColumnRightProp(content);
   const re = /<TwoColumn>([\s\S]*?)<\/TwoColumn>/g;
-  return content.replace(re, (_match, inner) => {
+  return normalized.replace(re, (_match, inner) => {
     const trimmed = inner.trim();
     if (!trimmed) return "";
     const rawHtml = md.render(trimmed).trim();
