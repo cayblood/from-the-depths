@@ -1,5 +1,7 @@
 import type { ComponentType } from "react";
 import { DropCap } from "~/components/DropCap";
+import { FloatWithParagraph } from "~/components/FloatWithParagraph";
+import { ImageWithCaption } from "~/components/ImageWithCaption";
 import { TwoColumn } from "~/components/TwoColumn";
 
 type MDXComponents = {
@@ -141,8 +143,10 @@ export const mdxComponents: MDXComponents = {
     </em>
   ),
   DropCap,
+  FloatWithParagraph,
+  ImageWithCaption,
   TwoColumn,
 };
 
 // Re-export components for direct import in MDX files
-export { DropCap, TwoColumn };
+export { DropCap, FloatWithParagraph, ImageWithCaption, TwoColumn };

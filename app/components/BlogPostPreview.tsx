@@ -42,7 +42,7 @@ export function BlogPostPreview({ post }: BlogPostPreviewProps) {
           }}
           // biome-ignore lint/security/noDangerouslySetInnerHtml: preview HTML is from our MDX via contentToHtml, not user input
           dangerouslySetInnerHTML={{
-            __html: contentToHtml(post.preview),
+            __html: contentToHtml(post.preview, { suppressFootnotes: true }),
           }}
         />
       )}

@@ -192,21 +192,25 @@ async function processBlogPosts(): Promise<void> {
 
 export function blogPlugin(): Plugin {
   let isServerStarted = false;
+  let serverRef: { watcher: { add: (path: string) => void }; ws: { send: (payload: { type: string; path?: string }) => void } } | null = null;
 
   return {
     name: "blog-plugin",
     buildStart: async () => {
       await processBlogPosts();
     },
-    configureServer: async () => {
+    configureServer: async (server) => {
+      server.watcher.add(POSTS_DIR);
+      serverRef = server;
       if (!isServerStarted) {
         isServerStarted = true;
         await processBlogPosts();
       }
     },
     handleHotUpdate: async ({ file }: { file: string }) => {
-      if (file.includes("content/posts/") && file.endsWith(".mdx")) {
+      if (file.includes("content/posts") && file.endsWith(".mdx")) {
         await processBlogPosts();
+        serverRef?.ws.send({ type: "full-reload", path: "*" });
       }
     },
   };

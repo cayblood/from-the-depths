@@ -138,6 +138,61 @@ article .prose-invert p {
   font-family: Georgia, "Times New Roman", serif;
 }
 
+/* Floated figures (ImageWithCaption): no top margin so they align with adjacent paragraph */
+article .prose figure.float-left,
+article .prose figure.float-right,
+article .prose-invert figure.float-left,
+article .prose-invert figure.float-right {
+  margin-top: 0;
+}
+
+/* Left float that immediately follows another float: push down so it sits lower (below the first float) */
+article .prose figure.float-right + figure.float-left,
+article .prose-invert figure.float-right + figure.float-left {
+  margin-top: 4rem;
+}
+
+/* Figure that follows a paragraph and has alignTop: pull up so it aligns with the next paragraph */
+article .prose p + figure.align-top,
+article .prose-invert p + figure.align-top {
+  margin-top: -3.5rem;
+}
+
+/* Paragraph immediately after a figure: no top margin so text aligns with image */
+article .prose figure + p,
+article .prose-invert figure + p {
+  margin-top: 0;
+}
+
+/* When a paragraph follows two floats, clear the first float so the paragraph starts at the same vertical position as the second float and they stay top-aligned */
+article .prose figure.float-right + figure.float-left + p,
+article .prose-invert figure.float-right + figure.float-left + p {
+  clear: right;
+}
+article .prose figure.float-left + figure.float-right + p,
+article .prose-invert figure.float-left + figure.float-right + p {
+  clear: left;
+}
+
+/* Wrapper so float and following paragraph share the same top (flow-root contains the float) */
+.float-with-paragraph {
+  display: flow-root;
+  margin-bottom: 1rem;
+}
+
+/* First paragraph in wrapper aligns with float(s) at top */
+.float-with-paragraph > p:first-of-type {
+  margin-top: 0;
+}
+
+/* Clear floats so content below floated images (e.g. ImageWithCaption) extends fully */
+article .prose::after,
+article .prose-invert::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 /* Subtitle styling - sits directly under post title */
 p.subtitle {
   font-size: 1.125rem; /* text-lg - reduced for contrast with title */
@@ -151,10 +206,10 @@ p.subtitle {
   text-shadow: none;
 }
 
-/* Subtitle immediately after post title: pull up to close gap from title line box */
+/* Subtitle immediately after post title: slight gap below title */
 h1.post-title + p.subtitle,
 h2.post-title + p.subtitle {
-  margin-top: -0.5rem;
+  margin-top: 0.25rem;
 }
 
 blockquote {
@@ -189,9 +244,11 @@ li {
   list-style-position: inside;
 }
 
-/* Decorative spacer for section breaks */
+/* Decorative spacer for section breaks - clears floats so next section starts on a full row */
 .decorative-spacer {
   @apply text-[#d8bbbe];
+  clear: both;
+  display: block;
   text-align: center;
   margin: 2rem auto;
   font-size: 1.2em;
@@ -391,8 +448,7 @@ table thead {
     column-gap: 2.5rem;
   }
 
-  /* Allow paragraphs to split between columns for better balance; keep other blocks intact */
-  .two-column blockquote,
+  /* Allow paragraphs and blockquotes to split between columns; keep other blocks intact */
   .two-column pre,
   .two-column ul,
   .two-column ol {
