@@ -1,8 +1,34 @@
-import type { ComponentType } from "react";
+import type { ComponentType, ReactNode } from "react";
+import { Children, cloneElement, isValidElement } from "react";
 import { DropCap } from "~/components/DropCap";
 import { FloatWithParagraph } from "~/components/FloatWithParagraph";
 import { ImageWithCaption } from "~/components/ImageWithCaption";
+import { SubstackEmbed } from "~/components/SubstackEmbed";
 import { TwoColumn } from "~/components/TwoColumn";
+
+/** Unicode em dash */
+const EM_DASH = "\u2014";
+/** Word joiner (zero-width no-break): prevents line break between preceding character and following character */
+const WORD_JOINER = "\u2060";
+
+/**
+ * Recursively process children and insert WORD_JOINER before every em dash
+ * so that em dashes stick to the word before them (no line break between word and dash).
+ */
+function stickEmDashToPrev(children: ReactNode): ReactNode {
+  return Children.map(children, (child) => {
+    if (typeof child === "string") {
+      return child.replaceAll(EM_DASH, `${WORD_JOINER}${EM_DASH}`);
+    }
+    if (isValidElement<{ children?: ReactNode }>(child) && child.props.children != null) {
+      return cloneElement(child, {
+        ...child.props,
+        children: stickEmDashToPrev(child.props.children),
+      });
+    }
+    return child;
+  });
+}
 
 type MDXComponents = {
   [key: string]: ComponentType<Record<string, unknown>>;
@@ -41,7 +67,7 @@ export const mdxComponents: MDXComponents = {
   ),
   p: ({ children, ...props }) => (
     <p className="mb-4 text-[#d8bbbe] leading-relaxed" {...props}>
-      {children}
+      {stickEmDashToPrev(children)}
     </p>
   ),
   a: ({ children, href, ...props }) => (
@@ -65,12 +91,12 @@ export const mdxComponents: MDXComponents = {
   ),
   li: ({ children, ...props }) => (
     <li className="mb-1" {...props}>
-      {children}
+      {stickEmDashToPrev(children)}
     </li>
   ),
   blockquote: ({ children, ...props }) => (
     <blockquote className="border-l-4 border-[#603d41] pl-4 italic my-4 text-[#d8bbbe]" {...props}>
-      {children}
+      {stickEmDashToPrev(children)}
     </blockquote>
   ),
   code: ({ children, className, ...props }) => {
@@ -120,12 +146,12 @@ export const mdxComponents: MDXComponents = {
   ),
   th: ({ children, ...props }) => (
     <th className="border border-[#603d41] px-4 py-2 text-left font-bold text-[#d8bbbe]" {...props}>
-      {children}
+      {stickEmDashToPrev(children)}
     </th>
   ),
   td: ({ children, ...props }) => (
     <td className="border border-[#603d41] px-4 py-2" {...props}>
-      {children}
+      {stickEmDashToPrev(children)}
     </td>
   ),
   hr: () => <div className="decorative-spacer">✦ ✦ ✦</div>,
@@ -145,8 +171,9 @@ export const mdxComponents: MDXComponents = {
   DropCap,
   FloatWithParagraph,
   ImageWithCaption,
+  SubstackEmbed,
   TwoColumn,
 };
 
 // Re-export components for direct import in MDX files
-export { DropCap, FloatWithParagraph, ImageWithCaption, TwoColumn };
+export { DropCap, FloatWithParagraph, ImageWithCaption, SubstackEmbed, TwoColumn };

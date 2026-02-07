@@ -96,6 +96,8 @@ h6:not(:first-child) {
   margin-top: 40px;
 }
 
+/* Em dashes: kept with the word before them (no line break between word and —) via Unicode word joiner in mdx-components. */
+
 p {
   @apply text-[#d8bbbe];
   font-family: Georgia, "Times New Roman", serif;
@@ -453,5 +455,35 @@ table thead {
   .two-column ul,
   .two-column ol {
     break-inside: avoid;
+  }
+}
+
+/* Two-column with custom right column (e.g. embed): left = main content, right = aside */
+.two-column-with-aside {
+  @apply text-[#d8bbbe];
+  font-family: Georgia, "Times New Roman", serif;
+  text-shadow: #3e2427 0 1px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center; /* center aside (e.g. embed) in single-column view */
+}
+
+@media (min-width: 1024px) {
+  .two-column-with-aside {
+    flex-direction: row;
+    gap: 2.5rem;
+    align-items: flex-start;
+  }
+
+  .two-column-with-aside .two-column-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .two-column-with-aside .two-column-aside {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 28rem;
   }
 }
