@@ -192,7 +192,10 @@ async function processBlogPosts(): Promise<void> {
 
 export function blogPlugin(): Plugin {
   let isServerStarted = false;
-  let serverRef: { watcher: { add: (path: string) => void }; ws: { send: (payload: { type: string; path?: string }) => void } } | null = null;
+  let serverRef: {
+    watcher: { add: (path: string) => void };
+    ws: { send: (payload: { type: string; path?: string }) => void };
+  } | null = null;
 
   return {
     name: "blog-plugin",

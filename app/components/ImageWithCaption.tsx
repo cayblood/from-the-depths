@@ -18,11 +18,7 @@ export function ImageWithCaption({ src, alt, caption, float, alignTop }: ImageWi
         ? "float-right clear-right ml-4 mb-4 max-w-[14rem] lg:max-w-[21rem]"
         : "";
 
-  const marginClasses = float
-    ? alignTop
-      ? "mb-4 align-top"
-      : "my-4"
-    : "my-6";
+  const marginClasses = float ? (alignTop ? "mb-4 align-top" : "my-4") : "my-6";
 
   return (
     <figure className={float ? `w-max ${marginClasses} ${floatClasses}` : "my-6"}>

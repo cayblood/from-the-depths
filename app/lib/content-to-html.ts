@@ -71,11 +71,7 @@ function convertImageWithCaption(content: string): string {
         : float === "right"
           ? "float-right clear-right ml-4 mb-4 max-w-[14rem] lg:max-w-[21rem]"
           : "";
-    const marginClasses = float
-      ? alignTop
-        ? "mb-4 align-top"
-        : "my-4"
-      : "my-6";
+    const marginClasses = float ? (alignTop ? "mb-4 align-top" : "my-4") : "my-6";
     const figureClass = float ? `w-max ${marginClasses} ${floatClasses}` : "my-6";
     const imgClass = `max-w-full h-auto rounded-lg ${float ? "block" : "w-full"}`;
     return `<figure class="${figureClass}"><img src="${src}" alt="${escapeHtml(alt)}" class="${imgClass}"><figcaption class="mt-2 text-sm text-[#d8bbbe] opacity-85 italic text-center font-[Inter] w-full max-w-full text-balance">${escapeHtml(caption)}</figcaption></figure>`;
