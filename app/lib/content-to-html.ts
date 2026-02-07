@@ -17,6 +17,17 @@ function convertDropCap(content: string): string {
   return content.replace(re, (_match, inner) => {
     const trimmed = inner.trim();
     if (!trimmed) return "";
+    // When content starts with I', style only "I" as drop cap (preview/RSS match DropCap.tsx)
+    const iApostrophe = /^I([\u2019'])(.*)/s.exec(trimmed);
+    if (iApostrophe) {
+      const [, apostrophe, rest] = iApostrophe;
+      const restHtmlRaw = md.render(rest).trim();
+      const restHtml =
+        restHtmlRaw.startsWith("<p>") && restHtmlRaw.endsWith("</p>")
+          ? restHtmlRaw.slice(3, -4)
+          : restHtmlRaw;
+      return `<p class="drop-cap-quoted"><span class="drop-cap-letter">I</span>${apostrophe}${restHtml}</p>`;
+    }
     let html = md.render(trimmed).trim();
     if (html.startsWith("<p>") && html.endsWith("</p>")) {
       html = html.slice(3, -4);
@@ -32,7 +43,7 @@ function stripTwoColumnRightProp(content: string): string {
 }
 
 function convertTwoColumn(content: string): string {
-  let normalized = stripTwoColumnRightProp(content);
+  const normalized = stripTwoColumnRightProp(content);
   const re = /<TwoColumn>([\s\S]*?)<\/TwoColumn>/g;
   return normalized.replace(re, (_match, inner) => {
     const trimmed = inner.trim();

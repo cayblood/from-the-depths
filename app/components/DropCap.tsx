@@ -36,6 +36,20 @@ export function DropCap({ children }: DropCapProps) {
 
   const text = extractText(children);
 
+  // When text starts with I + apostrophe (e.g. "I'm"), style only "I" as the drop cap
+  // so the apostrophe is not included (::first-letter would include it).
+  const iApostropheMatch = text.match(/^(I)([\u2019'])(.*)/s);
+  if (iApostropheMatch) {
+    const [, letterI, apostrophe, rest] = iApostropheMatch;
+    return (
+      <p className="drop-cap-quoted">
+        <span className="drop-cap-letter">{letterI}</span>
+        {apostrophe}
+        {rest}
+      </p>
+    );
+  }
+
   // Check if text starts with a quote (curly or straight).
   // Include U+201D (closing curly ") so mistyped source still shows the quote span.
   const leadingQuoteMatch = text.match(/^([""\u201C\u201D''\u2018„‚«‹])/);

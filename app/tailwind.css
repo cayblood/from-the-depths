@@ -442,6 +442,7 @@ table thead {
   @apply text-[#d8bbbe];
   font-family: Georgia, "Times New Roman", serif;
   text-shadow: #3e2427 0 1px 0;
+  line-height: 28px; /* Match .prose p so left and right columns align */
 }
 
 @media (min-width: 1024px) {
@@ -450,7 +451,13 @@ table thead {
     column-gap: 2.5rem;
   }
 
-  /* Allow paragraphs and blockquotes to split between columns; keep other blocks intact */
+  /* Allow paragraphs and blockquotes to split across columns */
+  .two-column p,
+  .two-column blockquote {
+    break-inside: auto;
+  }
+
+  /* Keep other blocks intact (don't split mid-list, etc.) */
   .two-column pre,
   .two-column ul,
   .two-column ol {
