@@ -13,8 +13,9 @@ export default function BlogPage() {
   const [searchParams] = useSearchParams();
   const tagFilter = searchParams.get("tag");
 
-  const pageNumber = parseInt(page || "1", 10);
-  const currentPage = Math.max(1, Math.min(pageNumber, blogPages.totalPages));
+  const rawPage = parseInt(page || "1", 10);
+  const pageNumber = Number.isFinite(rawPage) && rawPage >= 1 ? rawPage : 1;
+  const currentPage = Math.max(1, Math.min(pageNumber, blogPages.totalPages || 1));
 
   useEffect(() => {
     document.title = tagFilter
@@ -31,7 +32,8 @@ export default function BlogPage() {
     return <Navigate to="/" replace />;
   }
 
-  if (currentPage !== pageNumber || currentPage > blogPages.totalPages) {
+  const totalPages = blogPages.totalPages || 1;
+  if (currentPage !== pageNumber || currentPage > totalPages) {
     return <Navigate to={`/page/${currentPage}`} replace />;
   }
 
@@ -39,22 +41,17 @@ export default function BlogPage() {
     <main className="bg-[rgb(96,61,65)] px-6 pt-4 md:px-12 lg:pt-8 pb-12">
       <div className="flex flex-col lg:flex-row">
         <div id="main-content" className="grow lg:mr-12">
-          <h1
-            className={
-              tagFilter
-                ? "tag-filter-heading text-[#d8bbbe] mb-8"
-                : "text-4xl font-bold mb-8 text-[#d8bbbe]"
-            }
-          >
-            {tagFilter ? `Posts tagged: ${tagFilter}` : "Blog"}
-          </h1>
-
           {tagFilter && (
-            <div className="mb-6">
-              <a href="/" className="text-[#d8bbbe] underline hover:text-white transition-colors">
-                ← Back to all posts
-              </a>
-            </div>
+            <>
+              <h1 className="tag-filter-heading text-[#d8bbbe] mb-8">
+                Posts tagged: {tagFilter}
+              </h1>
+              <div className="mb-6">
+                <a href="/" className="text-[#d8bbbe] underline hover:text-white transition-colors">
+                  ← Back to all posts
+                </a>
+              </div>
+            </>
           )}
 
           {filteredPosts.length === 0 ? (
@@ -68,6 +65,7 @@ export default function BlogPage() {
                 currentPage={currentPage}
                 totalPages={blogPages.totalPages}
                 basePath="/"
+                search={tagFilter ? `?tag=${encodeURIComponent(tagFilter)}` : undefined}
               />
             </>
           )}

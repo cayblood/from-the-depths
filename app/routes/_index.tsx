@@ -54,7 +54,12 @@ export default function Index() {
                 <BlogPostPreview key={post.slug} post={post} />
               ))}
               {blogPages.totalPages > 1 && (
-                <Pagination currentPage={1} totalPages={blogPages.totalPages} basePath="/" />
+                <Pagination
+                  currentPage={1}
+                  totalPages={blogPages.totalPages}
+                  basePath="/"
+                  search={tagFilter ? `?tag=${encodeURIComponent(tagFilter)}` : undefined}
+                />
               )}
             </>
           )}
