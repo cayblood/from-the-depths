@@ -1,4 +1,4 @@
 window.dataLayer = window.dataLayer || [];
-function gtag() {
-  dataLayer.push(arguments);
-}
+window.gtag = function gtag(...args) {
+  window.dataLayer.push(args);
+};

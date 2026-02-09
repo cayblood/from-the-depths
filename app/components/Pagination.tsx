@@ -37,10 +37,17 @@ export function Pagination({ currentPage, totalPages, basePath, search }: Pagina
   }
 
   return (
-    <nav id="pagination" className="flex justify-center items-center gap-2 mt-8 mb-4" aria-label="Pagination">
+    <nav
+      id="pagination"
+      className="flex justify-center items-center gap-2 mt-8 mb-4"
+      aria-label="Pagination"
+    >
       {currentPage > 1 && (
         <Link
-          to={paginationTo(currentPage === 2 ? basePath : pagePath(basePath, currentPage - 1), search)}
+          to={paginationTo(
+            currentPage === 2 ? basePath : pagePath(basePath, currentPage - 1),
+            search
+          )}
           className="px-4 py-2 bg-[#3e2427] text-[#d8bbbe] rounded hover:bg-[#603d41] transition-colors"
         >
           ← Previous

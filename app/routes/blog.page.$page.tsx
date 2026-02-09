@@ -43,9 +43,7 @@ export default function BlogPage() {
         <div id="main-content" className="grow lg:mr-12">
           {tagFilter && (
             <>
-              <h1 className="tag-filter-heading text-[#d8bbbe] mb-8">
-                Posts tagged: {tagFilter}
-              </h1>
+              <h1 className="tag-filter-heading text-[#d8bbbe] mb-8">Posts tagged: {tagFilter}</h1>
               <div className="mb-6">
                 <a href="/" className="text-[#d8bbbe] underline hover:text-white transition-colors">
                   ← Back to all posts
