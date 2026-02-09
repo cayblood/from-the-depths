@@ -58,6 +58,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <title>From the Depths</title>
         <Links />
         <Meta />
+        <script src="/gtag.js" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ7WLCX63X" />
       </head>
       <body>
         {children}
@@ -76,7 +78,16 @@ export function HydrateFallback() {
   );
 }
 
+const GA_MEASUREMENT_ID = "G-GQ7WLCX63X";
+
 export default function Root() {
+  useEffect(() => {
+    if (typeof window.gtag === "function") {
+      window.gtag("js", new Date());
+      window.gtag("config", GA_MEASUREMENT_ID);
+    }
+  }, []);
+
   useEffect(() => {
     // Fallback for fonts if links didn't run (e.g. in some preview modes)
     if (document.querySelector('link[href*="fonts.googleapis.com"]')) return;
