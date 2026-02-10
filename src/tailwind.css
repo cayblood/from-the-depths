@@ -465,6 +465,29 @@ table thead {
   }
 }
 
+/* Two-column side-by-side: equal-width columns for parallel content (e.g. bilingual poems) */
+.two-column-side-by-side {
+  @apply text-[#d8bbbe];
+  font-family: Georgia, "Times New Roman", serif;
+  text-shadow: #3e2427 0 1px 0;
+  line-height: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .two-column-side-by-side {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+
+  .two-column-side-by-side > * {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
 /* Two-column with custom right column (e.g. embed): left = main content, right = aside */
 .two-column-with-aside {
   @apply text-[#d8bbbe];

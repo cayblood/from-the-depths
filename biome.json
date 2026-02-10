@@ -8,7 +8,7 @@
   "files": {
     "ignoreUnknown": false,
     "maxSize": 2621440,
-    "includes": ["**","!src/routeTree.gen.ts"]
+    "includes": ["**", "!src/routeTree.gen.ts"]
   },
   "formatter": {
     "enabled": true,

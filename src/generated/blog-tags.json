@@ -1,11 +1,11 @@
 {
   "tags": {
-    "Mormonism": 10,
+    "Mormonism": 11,
     "Transhumanism": 4,
-    "Theology": 10,
+    "Theology": 11,
     "Technology": 4,
     "AI": 2,
-    "Philosophy": 5,
+    "Philosophy": 6,
     "Resurrection": 1,
     "Quantum Archaeology": 1,
     "Christianity": 1,
@@ -19,8 +19,8 @@
     "Social Justice": 1,
     "Jesus": 1,
     "Ethics": 1,
-    "Faith": 1,
-    "Demythologization": 1,
+    "Faith": 2,
+    "Demythologization": 2,
     "Religion": 1,
     "Sociology": 1,
     "Evolution": 1
@@ -28,15 +28,15 @@
   "sortedTags": [
     {
       "tag": "Mormonism",
-      "count": 10
+      "count": 11
     },
     {
       "tag": "Theology",
-      "count": 10
+      "count": 11
     },
     {
       "tag": "Philosophy",
-      "count": 5
+      "count": 6
     },
     {
       "tag": "Transhumanism",
@@ -60,6 +60,14 @@
     },
     {
       "tag": "Church",
+      "count": 2
+    },
+    {
+      "tag": "Faith",
+      "count": 2
+    },
+    {
+      "tag": "Demythologization",
       "count": 2
     },
     {
@@ -100,14 +108,6 @@
     },
     {
       "tag": "Ethics",
-      "count": 1
-    },
-    {
-      "tag": "Faith",
-      "count": 1
-    },
-    {
-      "tag": "Demythologization",
       "count": 1
     },
     {

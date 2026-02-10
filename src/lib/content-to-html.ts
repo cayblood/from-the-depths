@@ -38,13 +38,14 @@ function convertDropCap(content: string): string {
 
 /** Strip TwoColumn right={...} prop so convertTwoColumn can match and preview/RSS don't show stray chars */
 function stripTwoColumnRightProp(content: string): string {
-  // Match right={<Anything />} so the rest of the pipeline sees <TwoColumn>...</TwoColumn>
-  return content.replace(/\s*right=\{[^}]*\/>\s*\}/g, "");
+  // Match right={...} including multiline JSX (self-closing or block elements).
+  // [^}]* matches everything except }, which handles both <Component /> and <div>...</div> content.
+  return content.replace(/\s*right=\{[^}]*\}/g, "");
 }
 
 function convertTwoColumn(content: string): string {
   const normalized = stripTwoColumnRightProp(content);
-  const re = /<TwoColumn>([\s\S]*?)<\/TwoColumn>/g;
+  const re = /<TwoColumn(?:\s[^>]*)?>([\s\S]*?)<\/TwoColumn>/g;
   return normalized.replace(re, (_match, inner) => {
     const trimmed = inner.trim();
     if (!trimmed) return "";

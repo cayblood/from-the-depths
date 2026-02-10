@@ -8,7 +8,14 @@ function Header() {
     <>
       <header className="flex flex-row w-full h-36 bg-black">
         <div className="ml-4 flex-none w-20 lg:w-32">
-          <video src="/candle360p.mp4" autoPlay loop muted playsInline className="h-32 object-cover" />
+          <video
+            src="/candle360p.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-32 object-cover"
+          />
         </div>
         <div className="grow bg-linear-to-r from-black to-[#382023]">
           <div className="grow flex flex-col h-36 lg:flex-row mt-4 lg:mt-0 justify-center mr-8">
