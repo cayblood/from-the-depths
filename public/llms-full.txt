@@ -570,6 +570,101 @@ Considering the important insights that Latter-day Saints have to share on this 
 
 ---
 
+## Web3 and the Promise of Decentralized Governance
+
+**Date:** Fri Mar 18 2022 18:00:00 GMT-0600 (Mountain Daylight Time)
+**Tags:** Technology, Decentralization, Governance, Transhumanism
+**URL:** https://blog.youngbloods.org/2022-03-19-web3-and-the-promise-of-decentralized-governance
+
+*This essay was [presented](https://www.youtube.com/watch?v=JK_0jsz6nVg) at MTAConf 2022: Decentralization of Power*
+
+<TwoColumn>
+<DropCap>Philosophers and political scientists have long debated the challenge of balanced and sustainable governance. The problem of collective action or preference coordination has kept power sharing limited. For most of recorded history, humanity has been compelled to choose between chaos and tyranny, with power usually concentrated within a relatively small group led by a single dictator. Perhaps surprisingly, political scientists tell us that "bad behavior is almost always good politics," meaning that dictators who hoard resources and dole them out lavishly to a small cadre of loyal leaders tend to maintain their hold on power better than those who attempt to distribute resources more equitably across a larger number of constituents. This is because resource distribution gets exponentially messier as the number of beneficiaries grows.</DropCap>
+
+Another term used to describe this problem is the tragedy of the commons. As scarce resources are shared between more and more people, it becomes more and more difficult to coordinate them fairly. Inevitably, one person or group of persons begins to take more than their fair share of resources. Others react in kind, and before you know it, the resource has been ruined for everyone.
+
+Traditionally, centralized authorities have been relied upon to govern these scarce resources, carefully apportioning them to those in positions of privilege or power, or those who seem especially deserving. Thomas Hobbes appealed to the necessity of a powerful central authority, a "Leviathan" that was so awe-inspiring and intimidating that nobody would dare to provoke its wrath. Without the pacifying power of the Leviathan, according to Hobbes, life would be "nasty, brutish, and short." Tribalism and chaos would prevail, because no faction would be sufficiently powerful to prevent others from trying their luck at conquest.
+</TwoColumn>
+
+
+
+***
+
+<TwoColumn>
+<DropCap>More recently, representative democracy has begun to gain favor over other more autocratic forms of government. The founders of the American nation relied on the technologies of paper ballots, original and periodic consent, representation, and various checks and balances to distribute power more equitably and keep it in balance. This improved preference coordination but it still demanded significant compromises between expeditious execution and broad consensus gathering. The technologies used for democratic governance haven't undergone significant upgrades since the American experiment nearly 250 years ago.</DropCap>
+
+New technologies threaten the balance of power. Technological breakthroughs are often accompanied by gold-rush periods where well-capitalized interests quickly drive out other contenders and dominate the competitive landscape. The advent of the public Internet has been no different. Many people have likened the Internet to the invention of the printing press, and it has been accompanied by similar levels of social transformation.
+
+For a while now, we've been hearing the term "Web 2.0." This leaves many people wondering, "What was Web 1.0?" That's a period most of us forget, but it was basically the days when people who wanted to post content online had to run their own server. If we've learned anything since the Internet got started, it's that people really don't like to run their own servers. Web 2.0 made it possible for everyday Internet users to post content online without having to run a server. Social media platforms allowed people to share their opinions, or maybe just what they had for breakfast, to the entire world. While many older folks initially wondered why anyone would want to share their personal thoughts, experiences and opinions online, it caught on rather quickly.
+
+But as these platforms have grown in popularity, they've gained tremendous control over the flow of information, including control over advertising markets and revenues, over access to news and entertainment, and even influence over the outcome of elections, conflicts between nations and ethnic groups, as well as matters of public health. Value has been captured by these powerful interests and used in ways that are detrimental to the common welfare.
+
+Part of the reason for this is that the protocols of the Internet were not built with monetization in mind, so any value that someone wants to receive for services must be extracted at higher layers of abstraction. If I'm a search engine like Google, for example, I need to build and maintain a lot of servers, networks and software to collect revenue. It's in my interest to keep people using my services and not others, and to prevent interoperability between my services and those of other competitors. Strengthening them weakens me, and vice versa.
+</TwoColumn>
+
+***
+
+<TwoColumn>
+<DropCap>During the last decade, blockchain technology has started to change this dynamic. Rather than relying on centralized servers operated by large companies, blockchains contain shared ledger data running on peer-to-peer networks consisting of many different computer nodes, each of which is operated independently, by both individuals and corporations. If one node goes down, there are still thousands more to replicate the data. Each node can independently verify the integrity of the blockchain ledger with cryptography, and is incentivized to participate in the creation of new pages or "blocks" in the blockchain ledger through monetary rewards. Applications based on these blockchain protocols are often referred to as Web3 applications.</DropCap>
+
+The first blockchain use case was cryptocurrencies. Like cash, cryptocurrencies are bearer instruments that grant direct access to wealth to anyone with access to the corresponding wallet's private key. Other methods of value transfer, like credit cards and bank accounts, rely on the intermediation of a financial institution that can block access to funds at any time, as we've recently seen in Canada.
+
+In addition to tracking debits and credits between users like Bitcoin does, modern blockchains also support storing the state of various operations in memory and executing arbitrarily complex business logic, called "smart contracts." These blockchains effectively become global computers with an extremely high level of security because their transaction logs can be verified with cryptography. (The notion of cryptographic verifiability is important, because it provides the highest levels of assurance currently known to humanity of the authenticity of a claim or logged event.) Even though the transaction rates on a blockchain are relatively low when compared with an individual computer working in isolation, they enable complex financial transactions and other business logic to be verified by all stakeholders and executed more quickly than present-day alternatives. Scaling up the nominal case and allowing many more legal contracts to be executed successfully is where blockchains really shine. Contractual disputes may occasionally still need to be resolved in court, but trivializing the nominal case is a game-changer.
+
+Take the simple case of a wire transfer. To do that today, you need to call your bank or log into their web site and request the transfer. Several hours later, the bank will call you back and ask some security questions to verify that you actually wanted to transfer this money. Then the wire goes out a few hours later in the next batch of transfers. The receiving bank must also acknowledge the receipt and credit the account of the intended recipient. The typical turnaround time is a business day. Compare this with sending cryptocurrency from your private wallet. The entire transaction is complete and confirmed in ten minutes or less, and it reaches the recipient's wallet directly, not their bank account.
+
+Note that in both cases, the transactions are irreversible. Wire transfers cannot be clawed back. Some have complained that mistakes with cryptocurrency can be more catastrophic, and in some cases they certainly can be. We are only beginning to develop robust solutions around key custody that balance recoverability with self sovereignty. But in many cases, the systems they are replacing are not any better. If the irreversibility of a crypto transfer is insufficient for a certain use case, a simple smart contract can be devised to hold funds in escrow while both parties confirm that their conditions have been met.
+</TwoColumn>
+
+***
+
+<TwoColumn>
+<DropCap>Cryptocurrencies were the first use case for blockchain, but there are many others. More recently, non-fungible tokens or NFTs have captured the public imagination. The reason they're called non-fungible, as opposed to fungible, is that NFTs contain specific information about a unique digital asset that is different from all others. If the NFT was minted appropriately, the wallet holder can cryptographically prove that they own the digital assets it describes.</DropCap>
+
+Till now, NFTs have mostly been used for art and other collectibles, but they have many other practical use cases, including domain name registrations, streaming media purchases and rentals, and ownership of both physical and digital assets, including fractional real estate. NFTs can also ensure that content creators are properly paid their fair share of royalties in real time whenever someone consumes their content.
+
+In addition to value transfers and tracking assets, blockchains are being used to provide decentralized financial services, or DeFi, including token trading, bonds, borrowing, lending, options, futures and derivatives. All of these services are being rendered without brokerages, banks or other intermediaries. The rules governing these complex financial services are encoded in smart contracts and executed on the blockchain for all stakeholders to observe in real time. Properly coded business logic ensures that transactions occur as expected without the possibility of human error.
+
+Of course, these services present new risks, such as contract risk, which occurs when hackers exploit a previously undiscovered bug in a smart contract that allows them to steal funds from the contract's treasury. New services are emerging to insure against such risks, and contracts that have proved their security through long experience become trusted over time.
+
+Despite all these risks, many DeFi projects have been highly successful, as demonstrated by the explosive growth of the space over the past two years. Many DeFi services offer more favorable interest rates than their traditional counterparts, and many of them are structured in a way where much larger percentages of the rewards are shared with users. In general, the value captured by project contributors in DeFi is roughly ten times less than what you could expect from a typical firm on Wall Street or Canary Wharf.
+</TwoColumn>
+
+***
+
+<TwoColumn>
+<DropCap>These applications are only the beginning. In addition to the decentralized settlement layer provided by blockchains, decentralized alternatives are being developed for all the other layers that current centralized applications need to run properly, including decentralized file storage, decentralized databases, and decentralized computing services. Eventually, because they are running on self-healing peer-to-peer networks that route around failures, our applications will be running everywhere, and nowhere.</DropCap> They will be resistant to censorship and surveillance because they don't rely on any bottlenecks or single points of failure. The rules encoded in successful smart contracts will reduce our reliance on corporate goodwill. Rather than corporations backsliding on their motto, "Don't be evil," Web3 protocols will make it so that directly interacting counterparties "can't be evil."
+
+Rather than creating walled gardens where participation in one ecosystem detracts from another, decentralized apps, or dapps, are permissionless and composable. Anyone who wants to can access them without intermediaries, and their data can be combined to create other services. Unlike in Web 2.0, where interacting in one platform detracts from other platforms, in Web3, each successful project makes the network more valuable.
+
+These technologies raise the possibility of restoring power to individuals and communities through disintermediation, that is, by "eliminating the middleman" from various current ecosystems and allowing them to be governed democratically, including financial services, social media, sharing economy platforms, media and entertainment. Imagine Facebook, Twitter, AirBnB, Uber, Netflix etc. but without the corporate structures behind them. In their place, decentralized autonomous organizations or DAOs that are governed by project contributors and users. Streamlined "high-touch" democracy allows project stakeholders to vote easily on project initiatives and other decisions.
+</TwoColumn>
+
+***
+
+<TwoColumn>
+<DropCap>This is a new frontier, and DAO management strategies and voting protocols are rapidly evolving. Simple one-person one-vote strategies are difficult to implement, because it is easy to duplicate crypto wallets to get extra votes. Requiring wallets to prove personhood can improve this, but often at the expense of stakeholder privacy. That said, blockchain privacy features are also rapidly improving.</DropCap> Still, one-person one-vote fails to compensate passionate project contributors for the effort they put in, thus failing to incentivize project improvements. Many projects have adopted token voting, in which stakeholder votes are weighted proportional to the tokens they own, with the assumption that larger stakeholders care more about the success of the project. Still other projects have adopted quadratic voting, where large tokenholders have more influence, but only in proportion to the square root of their token holdings, thus favoring broader consensus building. Some projects are also recognizing that early investors often don't actively participate and aren't always aligned with the long-term success of the project. By regularly issuing new tokens to active project stakeholders (sometimes called token inflation) these projects reduce the influence of inactive investors over the long-term, ensuring that ongoing active contributors retain adequate control and influence over the project's success.
+
+Beyond merely replacing the web services we currently use, DAOs are being organized with even more ambitious goals. According to the founders of AllianceDAO, four emerging megatrends are converging that will lead to DAOs becoming digital nations:
+
+1. **The Digitization of Everything.** Every aspect of life from work to social life is going online, but more importantly, the world of bits has been driving innovations throughout the world of atoms. Robotics, energy, biotech, space, and many other fields are all undergoing a renaissance thanks to decades of rapid advances in computing.
+2. **Decentralization of Global Superpowers.** The U.S. has been gradually losing influence as the enforcer of global order. The European Union is far less united after Brexit. China's values are fundamentally incompatible with the West so it isn't capable or willing to assume the role of world police either. This has created a vacuum that no single nation state can fill.
+3. **The Fourth Turning.** We've entered an era of great internal division between the establishment and commoners, between progressives and conservatives, between boomers and millennials, between the wealthy and the poor, and between capitalists and socialists. Ordinary people become increasingly frustrated with these societal issues, yet the vast majority cannot choose the society, government, and country they belong to—they are born into them.
+4. **Rise of Web3.** Thanks to Satoshi and all the other giants we are standing upon, a new technology has arrived and gifted us the ability to implement property rights via encryption, constitution and laws via smart contracts, taxation via token issuance, transparent policymaking via an open ledger, and international trade via DeFi.
+
+DAOs sit at the intersection of all these megatrends. They will prove to be the first primarily digital, transnational, frictionlessly opt-in opt-out, blockchain-enabled nation states.
+</TwoColumn>
+
+***
+
+<TwoColumn>
+<DropCap>Already, DAOs have been created with the goal of acquiring physical assets, including land. Some projects, like CityDAO and Praxis Society, are raising funds to acquire land on which they intend eventually to build charter cities that are managed and governed more transparently using the technologies I've mentioned.</DropCap>
+
+It has been transformative for me personally to be involved in this space. As I've developed blockchain protocols with my colleagues and attempted to create the necessary checks and balances for them to operate autonomously, I've often felt like I was witnessing a sort of constitutional convention similar to what the founders of our nation experienced when they debated how best to craft laws and achieve a separation of powers. While it is still early days and there is still much work to be done, I find hope and inspiration in the many useful applications that are being developed, and continue to believe in the possibility of developing systems that can help us to govern more effectively and to come closer to building better communities.
+</TwoColumn>
+
+---
+
 ## Demythologizing Environmentalism
 ### Overcoming the Malthusian Fallacy
 
@@ -993,6 +1088,145 @@ That's how I'll show my love for you.
 
 ---
 
+## Responding Prophetically to Technological Disruption
+
+**Date:** Sat Apr 01 2017 18:00:00 GMT-0600 (Mountain Daylight Time)
+**Tags:** Transhumanism, Mormonism, Prophecy, Theology
+**URL:** https://blog.youngbloods.org/2017-04-02-responding-prophetically-to-technological-disruption
+
+*This essay was [presented](https://www.youtube.com/watch?v=_gNfgbgzIb0) at MTAConf 2017*
+
+> "It was the best of times,<br/>
+> it was the worst of times,<br/>
+> it was the age of wisdom,<br/>
+> it was the age of foolishness,<br/>
+> it was the epoch of belief,<br/>
+> it was the epoch of incredulity,<br/>
+> it was the season of Light,<br/>
+> it was the season of Darkness,<br/>
+> it was the spring of hope,<br/>
+> it was the winter of despair,<br/>
+> we had everything before us,<br/>
+> we had nothing before us,<br/>
+> we were all going direct to Heaven,<br/>
+> we were all going direct the other way."<br/>
+> — Charles Dickens, *A Tale of Two Cities*
+
+<TwoColumn>
+<DropCap>Many traditional religious narratives are failing to resonate with and inspire people as they used to, and are being rejected in favor of more virulent forms of fundamentalism and extremism. Crumbling social structures are failing to sustain and support displaced workers at their time of greatest need.</DropCap>
+
+Evolving narratives, and the changing needs of every era have fueled a constant demand for prophets, and the accelerating pace of change in this, the dispensation of the fulness of times, has made the need for prophetic inspiration even more urgent. In the words of Emerson, "the need was never greater for new revelation than now."[^1]
+</TwoColumn>
+
+
+
+***
+
+<TwoColumn>
+<DropCap>The Mormon tradition offers many remarkable insights on prophecy and prophets, much of which I believe has been neglected and misunderstood as prophecy has become institutionalized. Most Mormons today think of prophethood and presidency in the Church as synonymous, and habitually refer to the President of the Church as "the Prophet." At their local and general conferences, Mormons ritualistically affirm the top leaders of the Church as "prophets, seers, and revelators," for the most part confining their use of these terms to the Church's highest leadership.</DropCap>
+
+But the early Mormon conception of prophet differed in significant ways, and can still be found underneath this institutional veneer. Joseph Smith's view of prophecy and revelation was radically egalitarian, a source of inspiration that rained down on men, women and children. Indeed, Joseph's spiritual journey began with faith in the premise that anyone who lacked wisdom could seek inspiration (James 1:5). When asked if he was a prophet, he replied, "Yes, and so is anyone else who has the testimony of Jesus, for [it] is the spirit of prophecy."[^2] Joseph based his views on the biblical exhortations of Paul, who taught that people should "be eager to prophesy" (1 Cor. 14:39) and Moses, who, when told that others were prophesying in the camp, exclaimed, "Are you jealous for my sake? Would that all the Lord's people were prophets, and that the Lord would put his spirit on them!" (Numbers 11:29)
+
+The Book of Mormon echoes this egalitarian view of prophecy. Nephi remarked that there were "many prophets" in the Jerusalem of his days (1 Ne. 1:4), and Enos later wrote that there were "exceedingly many prophets among [them]" (Enos 1:22). The book also teaches that "[the Lord] shall speak unto all nations of the earth, and they shall write it" (2 Ne. 29:12, emphasis added), and tells the stories of two prophets, Abinadi and Samuel, who had no ecclesiastical authority at all, in fact who condemned those who were in authority. It could be said that the Book of Mormon teaches that prophecy is a common privilege and even a duty shared by all conscientious souls of every religious persuasion throughout the world.
+</TwoColumn>
+
+***
+
+<DropCap>And what are the characteristics of a prophet? Prophets discern the signs of the times. They are keenly aware of the zeitgeist. They perceive a pressing need or injustice, and they articulate a call to action that resonates with and mobilizes people. They start social movements.</DropCap>
+
+Contrary to popular opinion, prophets rarely predict the future. Rather than being "foretellers," they are "forthtellers," presenting visions of what the future could be in a way that compels people to realize them. The most potent form of prophecy is self-fulfilling.
+
+Much in contrast with modern LDS portrayals of Jesus and other prophets as meek and gentle souls who never swore and never raised their voices, and who were unceasingly loyal to religious authority, prophets are iconoclasts, ridiculing fraudulent piety and corrupt traditions, seeming even to betray their own religion and culture as they do so. Imagine the establishment's reaction to Isaiah when he proclaimed:
+
+> What to me is the multitude of your sacrifices?<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;says the Lord;<br/>
+> I have had enough of burnt offerings of rams<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;and the fat of fed beasts;<br/>
+> I do not delight in the blood of bulls,<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;or of lambs, or of goats.<br/>
+> When you come to appear before me,<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;who asked this from your hand?<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;Trample my courts no more;<br/>
+> bringing offerings is futile;<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;incense is an abomination to me.<br/>
+> New moon and sabbath and calling of convocation—<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;I cannot endure solemn assemblies with iniquity.<br/>
+> Your new moons and your appointed festivals<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;my soul hates;<br/>
+> they have become a burden to me,<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;I am weary of bearing them.<br/>
+> When you stretch out your hands,<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;I will hide my eyes from you;<br/>
+> even though you make many prayers,<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;I will not listen;<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;your hands are full of blood.<br/>
+> Wash yourselves; make yourselves clean;<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;remove the evil of your doings<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;from before my eyes;<br/>
+> cease to do evil,<br/>
+> learn to do good;<br/>
+> seek justice,<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;rescue the oppressed,<br/>
+> defend the orphan,<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;plead for the widow.<br/>
+> (Isaiah 1:11–17)
+
+***
+
+Abraham J. Heschel, in his classic work on this topic, explains:
+
+> The striking surprise is that prophets of Israel were tolerated at all by their people. To the patriots, they seemed pernicious; to the pious multitude, blasphemous; to the men in authority, seditious.[^3]
+>
+> What gave them the strength to "demythologize" precious certainties, to attack what was holy, to hurl blasphemies at priest and king, to stand up against all in the name of God? The prophets must have been shattered by some cataclysmic experience in order to be able to shatter others.[^4]
+
+Prophets have a seemingly disproportionate sense of indignation over injustice in the world. Jesus of Nazareth, for example, was never more angry than when he criticized the Pharisees for their religious arrogance and their oppression of the poor. Heschel explains further:
+
+> The prophets' preoccupation with justice and righteousness has its roots in a powerful awareness of injustice. That justice is a good thing, a fine goal, even a supreme ideal, is commonly accepted. What is lacking is a sense of the monstrosity of injustice. Moralists of all ages have been eloquent in singing the praises of virtue. The distinction of the prophets was in their remorseless unveiling of injustice and oppression, in their comprehension of social, political, and religious evils. They were not concerned with the definition, but with the predicament, of justice, with the fact that those called upon to apply it defied it.[^5]
+
+***
+
+<DropCap>Prophets warn of potential calamities if their voice is not heeded, but their power consists in turning people from their destructive course rather than in seeing their warnings fulfilled, which brings them no pleasure (setting aside a few rather unprophetic slip-ups on the part of Jonah). Heschel elaborates:</DropCap>
+
+> The words of the prophet are stern, sour, stinging. But behind his austerity is love and compassion for [humanity]. Ezekiel sets forth what all other prophets imply: "Have I any pleasure in the death of the wicked, says the Lord God, and not rather than he should turn from his way and life?" (Ezek. 18:23). Indeed, every prediction of disaster is in itself an exhortation to repentance. The prophet is sent not only to upbraid, but also to "strengthen the weak hands and make firm the feeble knees" (Isa. 35:3). Almost every prophet brings consolation, promise, and the hope of reconciliation along with censure and castigation. He begins with a message of doom; he concludes with a message of hope.[^6]
+
+While many ancient and modern accounts describe or imagine gods as being indifferent to the plight of humans and concerned with far weightier matters, the prophetic conception of God is one of deep attention to the seemingly trivial details of human actions. Says Heschel, "to the prophet, … no subject is as worthy of consideration as the [human] plight. … In the prophet's message nothing that has bearing upon good and evil is small or trite in the eyes of God."[^7] "What the prophets proclaim is God's intimate relatedness to [us]. It is this fact that puts all of life in a divine perspective, in which [human] rights become, as it were, divine prerogatives. Humanity stands under God's concern."[^8]
+
+This image of a deeply connected and compassionate God is echoed in the Book of Moses' account of the vision of Enoch:
+
+> And it came to pass that the God of heaven looked upon the residue of the people, and he wept; and Enoch bore record of it, saying: How is it that the heavens weep, and shed forth their tears as the rain upon the mountains? And Enoch said unto the Lord: How is it that thou canst weep, seeing thou art holy, and from all eternity to all eternity? …
+>
+> The Lord said unto Enoch: Behold these thy brethren; they are the workmanship of mine own hands, … And unto thy brethren have I said, and also given commandment, that they should love one another, and that they should choose me, their Father; but behold, they are without affection, and they hate their own blood; … misery shall be their doom; and the whole heavens shall weep over them, even all the workmanship of mine hands; wherefore should not the heavens weep, seeing these shall suffer? … Wherefore, for this shall the heavens weep, yea, and all the workmanship of mine hands. And it came to pass that the Lord spake unto Enoch, and told Enoch all the doings of the children of men; wherefore Enoch knew, and looked upon their wickedness, and their misery, and wept and stretched forth his arms, and his heart swelled wide as eternity; and his bowels yearned; and all eternity shook. (Moses 7:28–41)
+
+***
+
+<TwoColumn>
+<DropCap>These characteristics of keen attention to the specific challenges of our time, compassion for the less fortunate, indignation at their oppression, and courage to stand up against injustice, are the hallmarks of prophecy, and should be the aspirations of every true Mormon. Heschel admonishes us:</DropCap>
+
+> If intense regard and concern for [humanity] is the mark of a moral act, then inspiration of the prophets in which God's regard and concern for humanity are disclosed and in which the prophet is entrusted with a mission to help the people, must be viewed as an eminently moral act. The moral aspect sets the prophetic act apart from intellectual, artistic, and mystical experiences.[^9]
+
+The vigorous compassion and creativity of a true spirit of prophecy is what will be required for humanity's successful transition through the turbulent labor pains of our transhuman era. My confident hope is that, as existing secular and religious institutions falter and buckle under the stress of accelerating change, they will in their desperation become more and more willing to try the remedies prescribed to them by those of us who take up the prophetic mantle and articulate compelling visions of the future. There will always be a need for prophecy. Our mastery of present problems is never sufficient to handle them with ease. Ingenuity and inspiration are indispensable. Art always precedes science. May we make diligent use of both as we strive to meet the challenges of our times.
+</TwoColumn>
+
+[^1]: Ralph Waldo Emerson, "Divinity School Address" (Cambridge, 1838).
+
+[^2]: Joseph Smith, *Teachings of the Prophet Joseph Smith*, comp. Joseph Fielding Smith (Salt Lake City: Deseret Book, 1938).
+
+[^3]: Abraham J. Heschel, *The Prophets* (New York: Harper & Row, 1962), 23.
+
+[^4]: Heschel, *The Prophets*, 14.
+
+[^5]: Heschel, *The Prophets*, 260.
+
+[^6]: Heschel, *The Prophets*, 14.
+
+[^7]: Heschel, *The Prophets*, 6.
+
+[^8]: Heschel, *The Prophets*, 280.
+
+[^9]: Heschel, *The Prophets*, 257.
+
+---
+
 ## “I Was a Stranger”
 ### Seeing Christ in the Least of These
 
@@ -1173,6 +1407,79 @@ Roberts comments on this passage:
 [^4]: Tillich, *Dynamics of Faith*, 58.
 [^5]: Luke 24:5-6 (KJV).
 [^6]: B. H. Roberts, *Improvement Era*, July 1906, 713.
+
+---
+
+## To the Jews, a Stumblingblock, and to the Greeks, Foolishness
+### The Challenges and Opportunities of Religious Transhumanism
+
+**Date:** Thu Apr 02 2015 18:00:00 GMT-0600 (Mountain Daylight Time)
+**Tags:** Transhumanism, Mormonism, Philosophy, Ethics, Religion
+**URL:** https://blog.youngbloods.org/2015-04-03-to-the-jews-a-stumblingblock
+
+*This was [presented](https://www.youtube.com/watch?v=B-1EWi1CeAA) at MTAConf 2015*
+
+<TwoColumn>
+<DropCap>Although most religious people anticipate some kind of eventual salvation and victory over death, it's not uncommon for many of them to hesitate when the prospect is actually within reach. When grand overarching redemption narratives remain in the distant future, they are safe; they provide comfort in trials without interfering too much with our daily lives. The surprising near-term apocalyptic predictions of transhumanists, however, can be disturbing. They threaten the tidily sewn-up redemption narratives, perhaps especially for some Mormons, whose non-metaphysical universe is compatible enough with transhumanist visions of the future to give them pause. Many people react to these visions with both awe and disappointment, sometimes at the same time. There's a feeling of "whoa, that's crazy," and "wait, is that all there is?", sort of like the red-headed man who is at first astounded at Sherlock Holmes' ability to divine intimate details of his personal history but who, after having it all explained to him says, "I thought at first that you had done something clever, but I see that there was nothing in it after all" ("The Red-Headed League," Arthur Conan Doyle).</DropCap>
+
+At our 2014 MTA conference, our Mormon guest speaker, Adam Miller, shared his reservations about transhumanism with a vivid metaphor. Outing himself as perhaps the most reluctant resurrectionist in all Mormondom, Miller used the pop culture vampire as a metaphor for radical life extension. "For the vampire, the extension of life itself inevitably becomes something to be suffered. Every cable TV vampire worth their salt, finds their existential crisis heightened, rather than ameliorated by their quasi-immortality." Miller made the important point that physical renewal without a corresponding spiritual transformation (which is what, presumably, Miller assumes transhumanist salvation to be) would only serve to increase our boredom and brokenness. Like many religious people, Miller seems reluctant to accept transhumanist salvation as legitimate, for perhaps good reasons, depending on which transhumanists one is listening to.
+
+I'd like to address these kinds of concerns today. They arise, I believe, both from lack of imagination on the part of many religionists and from lack of ethical awareness on the part of many transhumanists. This is also an area where I feel the Mormon Transhumanist Association can provide some much-needed thought leadership.
+</TwoColumn>
+
+
+
+***
+
+<TwoColumn>
+<DropCap>It can sometimes be alienating to be a religious transhumanist.</DropCap> The apostle Paul seemed to describe our predicament well when he said that his message was "unto the Jews a stumblingblock, and unto the Greeks, foolishness" (1 Cor. 1:23). On the one hand, many futurists, technologists and transhumanists are strongly secular and see little or no benefit in the religious perspectives that we articulate. On the other hand, the ways we frame these perspectives is often viewed with suspicion by other religious people.
+
+One of our primary goals as an organization is to try to bridge the gap between the sublime and the secular. We want to get strangers talking to each other and finding more common ground with one another. Come to a meetup of Mormon Transhumanists and you'll find some strange combinations. Devoutly religious people rub shoulders with skeptics and atheists, and everyone seems to still be friends! Conversations tend to be enthusiastic and respectful. Who are these people?!
+</TwoColumn>
+
+***
+
+<TwoColumn>
+<DropCap>Why do we care about bridging this gap?</DropCap> We feel that both sides of this divide need each other in important ways. Ours is an age in which much technological progress seems to be carried out by secularists. According to a recent survey published in *Sociology of Religion*, the rate of atheism and agnosticism in the academy is roughly ten times higher than in the general population of the United States. There is a perception that many secularists have a disdain for religious people and a lack of respect for tradition. This perception, warranted or not, makes it a lot harder for society to successfully navigate many of the existential risks in our future. Scientists and technologists are distrusted at times when their opinions are increasingly important, and this distrust can often lead to reduced funding for scientific research.
+
+Mormon transhumanism attempts to syncretize and valorize traditional practices while holding our minds open to new possibilities. Having been raised, for the most part, in traditional backgrounds, we see the value in these traditions while we also recognize some of their limitations. We want to respect and preserve tradition, to the extent it remains beneficial.
+
+We have also personally observed that many secular groups connected with transhumanism have struggled with internal contention and disagreement that has hampered their progress. Our Mormon upbringing has given us an exceptional capacity for cooperation that helps us to overcome these fractious tendencies and get things done. The Mormon Transhumanist Association, partly as a result of these qualities, is currently the largest advocacy network for the ethical use of technology and religion and one of the largest transhumanist organizations.
+
+So Mormonism bolsters these two qualities among transhumanists, among others: it promotes a more respectful and less disdainful attitude towards those people and groups whose cooperation will be critical towards the future success of our civilization, and it understands how to organize effectively.
+</TwoColumn>
+
+***
+
+<TwoColumn>
+<DropCap>In addition to these pragmatic qualities, Mormon theology is remarkably compatible with a secular worldview in ways that are often surprising to those who are less familiar with it.</DropCap> Mormon scripture teaches that "there is no such thing as immaterial matter," but that all spiritual phenomena must ultimately be measurable and observable in some way. Properly speaking, there is no metaphysics in Mormon cosmology—all phenomena, even those that appear to us to be miraculous, must have some natural explanation, and even God is bound by law. Mormons also view God as a progressing being who previously lived in a state very similar to the one we're experiencing now. These and other beliefs have the potential to make Mormonism much more coherent and palatable to secular audiences, although I believe our culture hasn't historically attempted to reach these audiences as well as we could. On more than one occasion I've seen die-hard atheists become quite surprised and taken aback by some of these ideas.
+
+Many secular transhumanist visions of the future fail to address important ethical challenges that religion has explored more seriously. For example, Ray Kurzweil, in his bestselling book *The Singularity Is Near*, describes a hedonistic future in which people will be able to have sex in virtual worlds with simulations of their favorite celebrities. Christian pastor and transhumanist Chris Benek rescues this narrative by pointing out that any intimate relationship worth having requires both parties to be sentient, and once a being is sentient, we are morally obligated to obtain its consent for all our interactions with it, and to interact with it in ways that are conducive to its well-being.
+
+This brings up the concept of mind uploading. Some secular transhumanist visions of the future have spoken of the body as a burden and a nuisance that we will eventually discard when it becomes possible to upload our consciousness directly into a computer. Mormon theology, on the other hand, values embodiment highly and claims that only when our consciousness is united with a body can we receive "a fullness of joy." Indeed, artificial intelligence researchers are discovering how essential embodiment is to all aspects of learning. While we may eventually gain the ability to upload our minds to another computational substrate, that substrate had better be as rich as what we are currently experiencing, or it will lack essential aspects of living. For all relevant intents and purposes, successfully uploaded minds will be embodied still.
+</TwoColumn>
+
+***
+
+<TwoColumn>
+<DropCap>I've touched on some of the ways religious transhumanism can complement and inform secular audiences.</DropCap> I'd like to spend the rest of my time addressing some concerns we often hear from religious audiences, both Mormon and non.
+
+As I said earlier, Adam Miller raised the concern that mere immortality would be insufficient to overcome our natural brokenness and propensity to sin, and could in fact exacerbate some of the problems of our present existence. I agree with him, and I feel that his calling attention to this deficiency is a good example of how secular transhumanism sometimes overlooks or downplays certain ethical challenges. Merely living indefinitely would not satisfy us if the nature of our lives did not also adapt to our new condition.
+
+Mormonism distinguishes between immortality (overcoming death) and "eternal life," which is defined as overcoming sin, or achieving a state of godlike compassion and benevolence. Mormon transhumanists believe that such eternal life is both something we should strive toward as we contemplate any physical healing or enhancement, and something that we should use all tools at our disposal to try to achieve, including science and technology.
+</TwoColumn>
+
+***
+
+<TwoColumn>
+<DropCap>Another concern that is often expressed by religious people is the worry that we are "playing god," that is, that there are certain 'lines in the sand' that are the purview of God alone, and that we are not to cross.</DropCap> I believe that this reflects a misunderstanding of our relationship with God. Jesus repeatedly described our relationship with him and God as one of intimate communion and interconnectivity. He prayed that we "might be one in him, even as he is one with the father," and described himself as a vine on which his disciples were the branches. Paul taught further that we are members of the body of Christ and that, as we serve in our several capacities, we become the means through which the salvation of Christ is administered. In this sense, "playing god" is exactly what we are called to do as the servants of God. We are called to be God's eyes, ears, hands and feet, and to be the means through which God's salvation is administered. Mormonism goes further to claim that our divine destiny, our most noble aspiration, is to become like our heavenly parents—gods.
+
+This, of course, doesn't mean that it isn't possible to pursue desired futures in detrimental ways—just that the appropriateness of certain technological advances depends greatly on the context and the motivations of those involved. Whether or not "playing god" is a virtue or a vice depends entirely on the type of god we are "playing." Do we use our power to exalt ourselves to the exclusion of others, or to exalt our fellows alongside ourselves? Do we strive to emulate the noblest qualities we can conceive of in our heavenly parents, or do we selfishly lord our authority over others? Mormonism teaches that "power and influence …" can only be maintained "by persuasion, by long-suffering, by gentleness and meekness, and by love unfeigned" (D&C 121:41). This is the model that Mormon Transhumanists strive to emulate.
+</TwoColumn>
+
+***
+
+Futurists, technologists and secularists stand to benefit greatly from the contributions of this merry band of oddballs, as do the traditionally religious. In speaking of our work, we often use the "Jim Bridger" analogy. When the pioneers and settlers migrated westward, they didn't blaze their own trails; instead, they followed the trails that others had blazed, like the trapper Jim Bridger. As we seek to identify and map this terrain, our hope is that this reconnaissance work may be of future benefit to our brothers and sisters both in and out of the Church.
 
 ---
 

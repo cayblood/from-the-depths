@@ -1,16 +1,18 @@
 {
   "tags": {
-    "Mormonism": 11,
-    "Transhumanism": 4,
-    "Theology": 11,
-    "Technology": 4,
+    "Mormonism": 13,
+    "Transhumanism": 7,
+    "Theology": 12,
+    "Technology": 5,
     "AI": 2,
-    "Philosophy": 6,
+    "Philosophy": 7,
     "Resurrection": 1,
     "Quantum Archaeology": 1,
     "Christianity": 1,
     "Atonement": 1,
     "Scripture": 2,
+    "Decentralization": 1,
+    "Governance": 1,
     "Environment": 1,
     "History": 1,
     "Compassion": 3,
@@ -18,33 +20,34 @@
     "Ministering": 1,
     "Social Justice": 1,
     "Jesus": 1,
-    "Ethics": 1,
+    "Prophecy": 1,
+    "Ethics": 2,
     "Faith": 2,
     "Demythologization": 2,
-    "Religion": 1,
+    "Religion": 2,
     "Sociology": 1,
     "Evolution": 1
   },
   "sortedTags": [
     {
       "tag": "Mormonism",
-      "count": 11
+      "count": 13
     },
     {
       "tag": "Theology",
-      "count": 11
-    },
-    {
-      "tag": "Philosophy",
-      "count": 6
+      "count": 12
     },
     {
       "tag": "Transhumanism",
-      "count": 4
+      "count": 7
+    },
+    {
+      "tag": "Philosophy",
+      "count": 7
     },
     {
       "tag": "Technology",
-      "count": 4
+      "count": 5
     },
     {
       "tag": "Compassion",
@@ -63,11 +66,19 @@
       "count": 2
     },
     {
+      "tag": "Ethics",
+      "count": 2
+    },
+    {
       "tag": "Faith",
       "count": 2
     },
     {
       "tag": "Demythologization",
+      "count": 2
+    },
+    {
+      "tag": "Religion",
       "count": 2
     },
     {
@@ -84,6 +95,14 @@
     },
     {
       "tag": "Atonement",
+      "count": 1
+    },
+    {
+      "tag": "Decentralization",
+      "count": 1
+    },
+    {
+      "tag": "Governance",
       "count": 1
     },
     {
@@ -107,11 +126,7 @@
       "count": 1
     },
     {
-      "tag": "Ethics",
-      "count": 1
-    },
-    {
-      "tag": "Religion",
+      "tag": "Prophecy",
       "count": 1
     },
     {
