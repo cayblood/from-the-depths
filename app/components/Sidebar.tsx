@@ -29,7 +29,7 @@ export function Sidebar() {
           Subscribe via RSS
         </a>
       </p>
-      <p className="mt-8 text text-sm">
+      <p className="mt-8 text text-sm" suppressHydrationWarning>
         Copyright &copy; 2010-{new Date().getFullYear()} Carl Youngblood
         <br />
         Shared under the{" "}
