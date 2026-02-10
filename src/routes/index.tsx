@@ -9,11 +9,11 @@ import type { BlogPages } from "~/lib/blog";
 const blogPages = blogPagesData as BlogPages;
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { tag?: string } => ({
     tag: (search.tag as string) || undefined,
   }),
-  head: ({ search }) => {
-    const headConfig = generateHomeHead(search?.tag);
+  head: ({ match }) => {
+    const headConfig = generateHomeHead(match.search?.tag);
     return {
       meta: headConfig.meta,
       scripts: headConfig.scripts,

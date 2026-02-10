@@ -9,7 +9,7 @@ import type { BlogPages } from "~/lib/blog";
 const blogPages = blogPagesData as BlogPages;
 
 export const Route = createFileRoute("/page/$page")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { tag?: string } => ({
     tag: (search.tag as string) || undefined,
   }),
   loader: ({ params }) => {
@@ -28,11 +28,11 @@ export const Route = createFileRoute("/page/$page")({
 
     return { currentPage };
   },
-  head: ({ params, search }) => {
+  head: ({ params, match }) => {
     const rawPage = parseInt(params.page || "1", 10);
     const pageNumber = Number.isFinite(rawPage) && rawPage >= 1 ? rawPage : 1;
     const currentPage = Math.max(1, Math.min(pageNumber, blogPages.totalPages || 1));
-    const headConfig = generatePaginatedHead(currentPage, search?.tag);
+    const headConfig = generatePaginatedHead(currentPage, match.search?.tag);
     return { meta: headConfig.meta };
   },
   component: BlogPage,

@@ -197,8 +197,7 @@ async function processBlogPosts(): Promise<void> {
       `## Blog Posts`,
       "",
       ...posts.map(
-        (post) =>
-          `- [${post.title}](${SITE_URL}/${post.slug}): ${post.description || post.title}`
+        (post) => `- [${post.title}](${SITE_URL}/${post.slug}): ${post.description || post.title}`
       ),
       "",
       "## Links",

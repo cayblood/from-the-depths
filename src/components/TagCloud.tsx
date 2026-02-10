@@ -30,7 +30,8 @@ export function TagCloud({ tags }: TagCloudProps) {
         return (
           <Link
             key={tag}
-            to={`/?tag=${encodeURIComponent(tag)}`}
+            to="/"
+            search={{ tag }}
             className="text-[#d8bbbe] hover:text-white transition-colors hover:underline"
             style={{ fontSize: `${fontSize}rem` }}
             title={`${count} post${count !== 1 ? "s" : ""}`}

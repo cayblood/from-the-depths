@@ -12,7 +12,7 @@ export function BlogPostPreview({ post }: BlogPostPreviewProps) {
     <article className="mb-10 pb-10 border-b border-[#603d41]">
       <header className="mb-4">
         <h2 className="post-title text-4xl mb-1 text-[#f5e6e7]">
-          <Link to={`/${post.slug}`} className="post-title-link hover:text-white transition-colors">
+          <Link to="/$slug" params={{ slug: post.slug }} className="post-title-link hover:text-white transition-colors">
             {post.title}
           </Link>
         </h2>
@@ -25,7 +25,8 @@ export function BlogPostPreview({ post }: BlogPostPreviewProps) {
             {post.tags.map((tag) => (
               <Link
                 key={tag}
-                to={`/?tag=${encodeURIComponent(tag)}`}
+                to="/"
+                search={{ tag }}
                 className="px-2 py-0.5 bg-[#3e2427] text-[#d8bbbe] rounded text-xs hover:bg-[#603d41] transition-colors"
               >
                 #{tag}
@@ -47,7 +48,8 @@ export function BlogPostPreview({ post }: BlogPostPreviewProps) {
         />
       )}
       <Link
-        to={`/${post.slug}`}
+        to="/$slug"
+        params={{ slug: post.slug }}
         className="text-[#d8bbbe] underline hover:text-white transition-colors"
       >
         Read more →
