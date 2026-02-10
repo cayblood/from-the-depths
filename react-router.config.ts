@@ -22,10 +22,10 @@ export default {
       const blogPages = JSON.parse(blogPagesData) as { totalPages: number };
 
       // Generate all static paths
+      // Note: /rss.xml is excluded because it's a static file in public/, not a route to prerender
       const paths: string[] = [
         "/", // Home page
         "/tags", // Tags page
-        "/rss.xml", // RSS feed
       ];
 
       // Add all blog post paths
