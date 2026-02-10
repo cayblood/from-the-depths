@@ -1,29 +1,26 @@
-import { useEffect } from "react";
-import { useSearchParams } from "react-router";
+import { useSearchParams, type MetaFunction } from "react-router";
 import blogPagesData from "~/generated/blog-pages.json";
 import { BlogPostPreview } from "~/components/BlogPostPreview";
 import { Pagination } from "~/components/Pagination";
 import { Sidebar } from "~/components/Sidebar";
+import { generateHomeMeta, generateWebsiteSchema } from "~/lib/seo";
 import type { BlogPages } from "~/lib/blog";
 
 const blogPages = blogPagesData as BlogPages;
 
+export const meta: MetaFunction = ({ location }) => {
+  const searchParams = new URLSearchParams(location.search || "");
+  const tagFilter = searchParams.get("tag") || undefined;
+
+  const metaTags = generateHomeMeta(tagFilter);
+  const schema = generateWebsiteSchema();
+
+  return [...metaTags, { "script:ld+json": schema }];
+};
+
 export default function Index() {
   const [searchParams] = useSearchParams();
   const tagFilter = searchParams.get("tag");
-
-  useEffect(() => {
-    document.title = tagFilter ? `From the Depths - Tag: ${tagFilter}` : "From the Depths";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "From the Depths - Blog and personal website");
-    } else {
-      const meta = document.createElement("meta");
-      meta.name = "description";
-      meta.content = "From the Depths - Blog and personal website";
-      document.head.appendChild(meta);
-    }
-  }, [tagFilter]);
 
   // Get first page posts
   const posts = blogPages.pages[0] || [];

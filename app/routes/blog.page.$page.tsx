@@ -1,12 +1,24 @@
-import { useEffect } from "react";
-import { useParams, useSearchParams, Navigate } from "react-router";
+import { useParams, useSearchParams, Navigate, type MetaFunction } from "react-router";
 import blogPagesData from "~/generated/blog-pages.json";
 import { BlogPostPreview } from "~/components/BlogPostPreview";
 import { Pagination } from "~/components/Pagination";
 import { Sidebar } from "~/components/Sidebar";
+import { generatePaginatedMeta } from "~/lib/seo";
 import type { BlogPages } from "~/lib/blog";
 
 const blogPages = blogPagesData as BlogPages;
+
+export const meta: MetaFunction = ({ params, location }) => {
+  const { page } = params;
+  const searchParams = new URLSearchParams(location.search || "");
+  const tagFilter = searchParams.get("tag") || undefined;
+
+  const rawPage = parseInt(page || "1", 10);
+  const pageNumber = Number.isFinite(rawPage) && rawPage >= 1 ? rawPage : 1;
+  const currentPage = Math.max(1, Math.min(pageNumber, blogPages.totalPages || 1));
+
+  return generatePaginatedMeta(currentPage, tagFilter);
+};
 
 export default function BlogPage() {
   const { page } = useParams<{ page: string }>();
@@ -16,12 +28,6 @@ export default function BlogPage() {
   const rawPage = parseInt(page || "1", 10);
   const pageNumber = Number.isFinite(rawPage) && rawPage >= 1 ? rawPage : 1;
   const currentPage = Math.max(1, Math.min(pageNumber, blogPages.totalPages || 1));
-
-  useEffect(() => {
-    document.title = tagFilter
-      ? `Blog - Page ${currentPage} - Tag: ${tagFilter}`
-      : `Blog - Page ${currentPage}`;
-  }, [currentPage, tagFilter]);
 
   const posts = blogPages.pages[currentPage - 1] || [];
 

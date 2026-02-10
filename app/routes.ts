@@ -6,5 +6,6 @@ export default [
   route("rss.xml", "./routes/rss.xml.tsx"),
   route("tags", "./routes/blog.tags.tsx"),
   route("page/:page", "./routes/blog.page.$page.tsx"),
+  route(".well-known/*", "./routes/.well-known.$.tsx"),
   route(":slug", "./routes/blog.$slug.tsx"),
 ] satisfies RouteConfig;

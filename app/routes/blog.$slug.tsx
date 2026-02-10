@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState, type ComponentType } from "react";
-import { useParams, Link, Navigate } from "react-router";
+import { useParams, Link, Navigate, type MetaFunction } from "react-router";
 import blogIndexData from "~/generated/blog-index.json";
 import slugMappingData from "~/generated/blog-slugs.json";
 import { formatDate } from "~/lib/blog";
 import { Sidebar } from "~/components/Sidebar";
 import { mdxComponents } from "~/lib/mdx-components";
+import { generateBlogPostMeta, generateBlogPostSchema } from "~/lib/seo";
 import type { BlogIndex } from "~/lib/blog";
 
 const blogIndex = blogIndexData as BlogIndex;
@@ -17,27 +18,22 @@ const mdxModules = import.meta.glob<{
   frontmatter?: Record<string, unknown>;
 }>("/content/posts/*.mdx");
 
-function setOrUpdateMetaTag(
-  selector: string,
-  attribute: string,
-  value: string,
-  contentAttribute = "content"
-) {
-  const element = document.querySelector(selector);
-  if (element) {
-    element.setAttribute(contentAttribute, value);
-  } else {
-    const meta = document.createElement("meta");
-    if (attribute.includes(":")) {
-      // Open Graph or Twitter Card
-      meta.setAttribute("property", attribute);
-    } else {
-      meta.setAttribute(attribute, contentAttribute === "content" ? "" : contentAttribute);
-    }
-    meta.setAttribute(contentAttribute, value);
-    document.head.appendChild(meta);
+export const meta: MetaFunction = ({ params }) => {
+  const { slug } = params;
+  const post = blogIndex.posts.find((p) => p.slug === slug);
+
+  if (!post) {
+    return [
+      { title: "Post Not Found - From the Depths" },
+      { name: "description", content: "The requested blog post could not be found." },
+    ];
   }
-}
+
+  const metaTags = generateBlogPostMeta(post);
+  const schema = generateBlogPostSchema(post);
+
+  return [...metaTags, { "script:ld+json": schema }];
+};
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -85,136 +81,6 @@ export default function BlogPostPage() {
         setIsLoading(false);
       });
   }, [slug, post]);
-
-  useEffect(() => {
-    if (post) {
-      const baseUrl = "https://youngbloods.org";
-      const postUrl = `${baseUrl}/${post.slug}`;
-
-      // Basic meta tags
-      document.title = `${post.title} - From the Depths`;
-      setOrUpdateMetaTag('meta[name="description"]', "name", post.description || post.title);
-
-      // Keywords
-      if (post.keywords && post.keywords.length > 0) {
-        setOrUpdateMetaTag(
-          'meta[name="keywords"]',
-          "name",
-          Array.isArray(post.keywords) ? post.keywords.join(", ") : post.keywords
-        );
-      }
-
-      // Open Graph tags
-      setOrUpdateMetaTag('meta[property="og:title"]', "og:title", post.title);
-      setOrUpdateMetaTag(
-        'meta[property="og:description"]',
-        "og:description",
-        post.description || ""
-      );
-      setOrUpdateMetaTag('meta[property="og:type"]', "og:type", "article");
-      setOrUpdateMetaTag('meta[property="og:url"]', "og:url", postUrl);
-      if (post.defaultImage) {
-        setOrUpdateMetaTag(
-          'meta[property="og:image"]',
-          "og:image",
-          `${baseUrl}${post.defaultImage}`
-        );
-      }
-
-      // Twitter Card tags
-      setOrUpdateMetaTag('meta[name="twitter:card"]', "twitter:card", "summary_large_image");
-      setOrUpdateMetaTag('meta[name="twitter:title"]', "twitter:title", post.title);
-      setOrUpdateMetaTag(
-        'meta[name="twitter:description"]',
-        "twitter:description",
-        post.description || ""
-      );
-      if (post.defaultImage) {
-        setOrUpdateMetaTag(
-          'meta[name="twitter:image"]',
-          "twitter:image",
-          `${baseUrl}${post.defaultImage}`
-        );
-      }
-
-      // Article-specific meta tags
-      setOrUpdateMetaTag(
-        'meta[property="article:published_time"]',
-        "article:published_time",
-        post.datePublished
-      );
-      if (post.tags && post.tags.length > 0) {
-        // Remove existing article:tag tags
-        for (const el of document.querySelectorAll('meta[property^="article:tag"]')) {
-          el.remove();
-        }
-        // Add new tags
-        post.tags.forEach((tag) => {
-          const meta = document.createElement("meta");
-          meta.setAttribute("property", "article:tag");
-          meta.setAttribute("content", tag);
-          document.head.appendChild(meta);
-        });
-      }
-
-      // Structured data (JSON-LD)
-      let structuredDataScript = document.querySelector(
-        'script[type="application/ld+json"][data-blog-post]'
-      ) as HTMLScriptElement | null;
-      if (structuredDataScript) {
-        structuredDataScript.remove();
-      }
-
-      const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        headline: post.title,
-        description: post.description || "",
-        datePublished: post.datePublished,
-        author: {
-          "@type": "Person",
-          name: "Carl Youngblood",
-        },
-        publisher: {
-          "@type": "Organization",
-          name: "From the Depths",
-        },
-        url: postUrl,
-        ...(post.defaultImage && {
-          image: `${baseUrl}${post.defaultImage}`,
-        }),
-        ...(post.keywords && {
-          keywords: Array.isArray(post.keywords) ? post.keywords.join(", ") : post.keywords,
-        }),
-      };
-
-      structuredDataScript = document.createElement("script");
-      structuredDataScript.type = "application/ld+json";
-      structuredDataScript.setAttribute("data-blog-post", "true");
-      structuredDataScript.textContent = JSON.stringify(structuredData);
-      document.head.appendChild(structuredDataScript);
-    }
-
-    // Cleanup function
-    return () => {
-      // Remove blog-specific meta tags on unmount
-      document
-        .querySelectorAll(
-          'meta[property^="og:"], meta[name^="twitter:"], meta[property^="article:"], script[data-blog-post]'
-        )
-        .forEach((el) => {
-          const element = el as HTMLElement;
-          if (
-            element.getAttribute("data-blog-post") ||
-            element.getAttribute("property")?.startsWith("og:") ||
-            element.getAttribute("property")?.startsWith("article:") ||
-            element.getAttribute("name")?.startsWith("twitter:")
-          ) {
-            element.remove();
-          }
-        });
-    };
-  }, [post]);
 
   if (!post) {
     return <Navigate to="/" replace />;

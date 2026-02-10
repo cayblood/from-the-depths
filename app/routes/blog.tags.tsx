@@ -1,16 +1,17 @@
-import { useEffect } from "react";
+import type { MetaFunction } from "react-router";
 import blogTagsData from "~/generated/blog-tags.json";
 import { TagCloud } from "~/components/TagCloud";
 import { Sidebar } from "~/components/Sidebar";
+import { generateTagsMeta } from "~/lib/seo";
 import type { BlogTags } from "~/lib/blog";
 
 const blogTags = blogTagsData as BlogTags;
 
-export default function BlogTagsPage() {
-  useEffect(() => {
-    document.title = "Blog Tags - From the Depths";
-  }, []);
+export const meta: MetaFunction = () => {
+  return generateTagsMeta();
+};
 
+export default function BlogTagsPage() {
   return (
     <main className="bg-[rgb(96,61,65)] px-6 pt-4 md:px-12 lg:pt-8 pb-12">
       <div className="flex flex-col lg:flex-row">

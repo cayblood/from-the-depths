@@ -11,7 +11,9 @@
     "lint": "biome lint --write .",
     "format": "biome format --write .",
     "preview": "vite preview",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "checks": "bun run format && bun run lint && bun run typecheck",
+    "yolo": "bun run checks && git add . && git commit -m 'Nondescript update' && git push"
   },
   "dependencies": {
     "@react-router/node": "^7.13.0",

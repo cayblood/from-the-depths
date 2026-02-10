@@ -30,8 +30,17 @@ function stickEmDashToPrev(children: ReactNode): ReactNode {
   });
 }
 
+type MDXComponentProps = {
+  children?: ReactNode;
+  className?: string;
+  href?: string;
+  src?: string;
+  alt?: string;
+  [key: string]: unknown;
+};
+
 type MDXComponents = {
-  [key: string]: ComponentType<Record<string, unknown>>;
+  [key: string]: ComponentType<MDXComponentProps>;
 };
 
 export const mdxComponents: MDXComponents = {
@@ -99,7 +108,7 @@ export const mdxComponents: MDXComponents = {
       {stickEmDashToPrev(children)}
     </blockquote>
   ),
-  code: ({ children, className, ...props }) => {
+  code: ({ children, className, ...props }: MDXComponentProps) => {
     const isInline = !className;
     if (isInline) {
       return (
@@ -112,7 +121,7 @@ export const mdxComponents: MDXComponents = {
       );
     }
     return (
-      <code className={className} {...props}>
+      <code className={className as string} {...props}>
         {children}
       </code>
     );
@@ -155,8 +164,13 @@ export const mdxComponents: MDXComponents = {
     </td>
   ),
   hr: () => <div className="decorative-spacer">✦ ✦ ✦</div>,
-  img: ({ src, alt, ...props }) => (
-    <img src={src} alt={alt} className="max-w-full h-auto rounded-lg my-4" {...props} />
+  img: ({ src, alt, ...props }: MDXComponentProps) => (
+    <img
+      src={src as string}
+      alt={alt as string | undefined}
+      className="max-w-full h-auto rounded-lg my-4"
+      {...props}
+    />
   ),
   strong: ({ children, ...props }) => (
     <strong className="font-bold text-white" {...props}>
@@ -168,11 +182,11 @@ export const mdxComponents: MDXComponents = {
       {children}
     </em>
   ),
-  DropCap,
-  FloatWithParagraph,
-  ImageWithCaption,
-  SubstackEmbed,
-  TwoColumn,
+  DropCap: DropCap as unknown as ComponentType<MDXComponentProps>,
+  FloatWithParagraph: FloatWithParagraph as unknown as ComponentType<MDXComponentProps>,
+  ImageWithCaption: ImageWithCaption as unknown as ComponentType<MDXComponentProps>,
+  SubstackEmbed: SubstackEmbed as unknown as ComponentType<MDXComponentProps>,
+  TwoColumn: TwoColumn as unknown as ComponentType<MDXComponentProps>,
 };
 
 // Re-export components for direct import in MDX files
