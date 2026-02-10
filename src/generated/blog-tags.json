@@ -1,12 +1,12 @@
 {
   "tags": {
-    "Transhumanism": 8,
-    "Mormonism": 14,
+    "Transhumanism": 9,
+    "Mormonism": 15,
+    "Theology": 13,
+    "Technology": 6,
     "Education": 1,
     "Blockchain": 1,
     "Africa": 1,
-    "Theology": 12,
-    "Technology": 5,
     "AI": 2,
     "Philosophy": 7,
     "Resurrection": 1,
@@ -34,15 +34,15 @@
   "sortedTags": [
     {
       "tag": "Mormonism",
-      "count": 14
+      "count": 15
     },
     {
       "tag": "Theology",
-      "count": 12
+      "count": 13
     },
     {
       "tag": "Transhumanism",
-      "count": 8
+      "count": 9
     },
     {
       "tag": "Philosophy",
@@ -50,7 +50,7 @@
     },
     {
       "tag": "Technology",
-      "count": 5
+      "count": 6
     },
     {
       "tag": "Compassion",
