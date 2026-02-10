@@ -1,5 +1,4 @@
 import { useMemo, type ComponentType } from "react";
-import { renderToString } from "react-dom/server";
 import {
   useParams,
   Link,
@@ -27,44 +26,34 @@ const mdxModules = import.meta.glob<{
 }>("/content/posts/*.mdx", { eager: true });
 
 // Use loader (not clientLoader) so it executes during prerendering for SSG
-// Render MDX component to HTML string so it's included in static HTML for crawlers
+// Return the filename so we can render the MDX component directly (components can't be serialized)
 export const loader = ({ params }: LoaderFunctionArgs) => {
   const { slug } = params;
   const post = blogIndex.posts.find((p) => p.slug === slug);
 
   if (!post) {
-    return { mdxHtml: null, error: null };
+    return { filename: null, error: null };
   }
 
   if (!slug) {
-    return { mdxHtml: null, error: "No slug provided" };
+    return { filename: null, error: "No slug provided" };
   }
 
   const filename = slugMapping[slug];
   if (!filename) {
-    return { mdxHtml: null, error: `No MDX file found for slug: ${slug}` };
+    return { filename: null, error: `No MDX file found for slug: ${slug}` };
   }
 
   const modulePath = `/content/posts/${filename}.mdx`;
   const module = mdxModules[modulePath];
 
   if (!module) {
-    return { mdxHtml: null, error: `MDX module not found: ${modulePath}` };
+    return { filename: null, error: `MDX module not found: ${modulePath}` };
   }
 
-  try {
-    // Render MDX component to HTML string for SSG
-    // This ensures content is in the static HTML for crawlers
-    const MDXComponent = module.default;
-    const mdxHtml = renderToString(<MDXComponent components={mdxComponents} />);
-    return { mdxHtml, error: null };
-  } catch (err) {
-    console.error("Failed to render MDX:", err);
-    return {
-      mdxHtml: null,
-      error: `Failed to load content: ${err instanceof Error ? err.message : String(err)}`,
-    };
-  }
+  // Return filename instead of component - component will be rendered directly in the component tree
+  // This ensures React can properly hydrate the MDX content
+  return { filename, error: null };
 };
 
 export const meta: MetaFunction = ({ params }) => {
@@ -87,12 +76,20 @@ export const meta: MetaFunction = ({ params }) => {
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const loaderData = useLoaderData<typeof loader>();
-  const mdxHtml = loaderData?.mdxHtml ?? null;
+  const filename = loaderData?.filename ?? null;
   const error = loaderData?.error ?? null;
 
   const post = useMemo(() => {
     return blogIndex.posts.find((p) => p.slug === slug);
   }, [slug]);
+
+  // Get the MDX component based on filename from loader
+  const MDXContent = useMemo(() => {
+    if (!filename) return null;
+    const modulePath = `/content/posts/${filename}.mdx`;
+    const module = mdxModules[modulePath];
+    return module?.default ?? null;
+  }, [filename]);
 
   if (!post) {
     return <Navigate to="/" replace />;
@@ -133,10 +130,7 @@ export default function BlogPostPage() {
 
             <div className="prose prose-invert max-w-none text-[#d8bbbe]">
               {error && <p className="text-red-400">Error: {error}</p>}
-              {mdxHtml && !error && (
-                // biome-ignore lint/security/noDangerouslySetInnerHtml: MDX HTML is from our own content files, rendered server-side
-                <div dangerouslySetInnerHTML={{ __html: mdxHtml }} />
-              )}
+              {MDXContent && !error && <MDXContent components={mdxComponents} />}
             </div>
           </article>
         </div>

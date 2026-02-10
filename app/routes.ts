@@ -7,5 +7,6 @@ export default [
   route("tags", "./routes/blog.tags.tsx"),
   route("page/:page", "./routes/blog.page.$page.tsx"),
   route(".well-known/*", "./routes/.well-known.$.tsx"),
+  route("__manifest/*", "./routes/__manifest.$.tsx"),
   route(":slug", "./routes/blog.$slug.tsx"),
 ] satisfies RouteConfig;
