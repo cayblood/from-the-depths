@@ -11,7 +11,7 @@ function Header() {
           <video src="/candle360p.mp4" autoPlay loop muted className="h-32 object-cover" />
         </div>
         <div className="grow bg-linear-to-r from-black to-[#382023]">
-          <div className="grow flex flex-col h-36 lg:flex-row justify-center mr-8">
+          <div className="grow flex flex-col h-36 lg:flex-row mt-4 lg:mt-0 justify-center mr-8">
             <div className="lg:grow lg:grid">
               <Link className="self-center" to="/">
                 <img
@@ -52,7 +52,12 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
       },
-      { rel: "alternate", type: "application/rss+xml", title: "From the Depths RSS", href: "/rss.xml" },
+      {
+        rel: "alternate",
+        type: "application/rss+xml",
+        title: "From the Depths RSS",
+        href: "/rss.xml",
+      },
     ],
     scripts: [
       { src: "/gtag.js" },
