@@ -16,7 +16,7 @@ export function Sidebar() {
         He co-founded the{" "}
         <a href="https://www.transfigurism.org">Mormon Transhumanist Association</a>, a non-profit
         dedicated to exploring the ethical and theological ramifications of science and technology
-        from a Mormon perspective.
+        from a Mormon perspective. He currently serves as its President and CEO.
       </p>
       <p className="mt-4 text text-sm leading-relaxed">
         This is where he shares his personal thoughts and writings.
