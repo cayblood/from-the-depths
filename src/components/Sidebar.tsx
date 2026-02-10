@@ -1,6 +1,6 @@
 export function Sidebar() {
   return (
-    <div id="sidebar" className="flex-none w-72">
+    <aside aria-label="About the author" className="flex-none w-72">
       <div className="mt-4 w-48 aspect-square overflow-hidden rounded-sm shrink-0 mx-auto">
         <img
           src="/carl-hedcut.webp"
@@ -38,6 +38,6 @@ export function Sidebar() {
         </a>{" "}
         license.
       </p>
-    </div>
+    </aside>
   );
 }

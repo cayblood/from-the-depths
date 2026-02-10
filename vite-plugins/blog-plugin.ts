@@ -14,8 +14,8 @@ import {
   type BlogIndex,
   type BlogPages,
   type BlogTags,
-} from "../app/lib/blog.js";
-import { contentToHtml } from "../app/lib/content-to-html.js";
+} from "../src/lib/blog.js";
+import { contentToHtml } from "../src/lib/content-to-html.js";
 
 export interface SlugMapping {
   [slug: string]: string; // slug -> filename (without extension)
@@ -25,9 +25,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const POSTS_DIR = join(__dirname, "../content/posts");
-const GENERATED_DIR = join(__dirname, "../app/generated");
-const RSS_OUTPUT = join(__dirname, "../public/rss.xml");
+const GENERATED_DIR = join(__dirname, "../src/generated");
+const PUBLIC_DIR = join(__dirname, "../public");
+const RSS_OUTPUT = join(PUBLIC_DIR, "rss.xml");
+const SITEMAP_OUTPUT = join(PUBLIC_DIR, "sitemap.xml");
+const LLMS_OUTPUT = join(PUBLIC_DIR, "llms.txt");
+const LLMS_FULL_OUTPUT = join(PUBLIC_DIR, "llms-full.txt");
 const POSTS_PER_PAGE = 10;
+const SITE_URL = "https://blog.youngbloods.org";
 
 async function processBlogPosts(): Promise<void> {
   try {
@@ -144,8 +149,8 @@ async function processBlogPosts(): Promise<void> {
     const feed = new RSS({
       title: "From the Depths Blog",
       description: "Blog posts from From the Depths",
-      feed_url: "https://youngbloods.org/rss.xml",
-      site_url: "https://youngbloods.org",
+      feed_url: `${SITE_URL}/rss.xml`,
+      site_url: SITE_URL,
       language: "en",
       pubDate: new Date().toUTCString(),
       custom_namespaces: {
@@ -163,7 +168,7 @@ async function processBlogPosts(): Promise<void> {
           "media:content": [
             {
               _attr: {
-                url: `https://youngbloods.org${post.defaultImage}`,
+                url: `${SITE_URL}${post.defaultImage}`,
                 type: "image/jpeg",
               },
             },
@@ -173,7 +178,7 @@ async function processBlogPosts(): Promise<void> {
       feed.item({
         title: post.title,
         description: post.description || post.preview || "",
-        url: `https://youngbloods.org/${post.slug}`,
+        url: `${SITE_URL}/${post.slug}`,
         guid: post.slug,
         date: new Date(post.datePublished),
         categories: post.tags,
@@ -182,6 +187,81 @@ async function processBlogPosts(): Promise<void> {
     }
 
     await writeFile(RSS_OUTPUT, feed.xml({ indent: true }));
+
+    // Generate llms.txt (structured index for AI crawlers)
+    const llmsLines = [
+      "# From the Depths",
+      "",
+      "> Blog and personal website of Carl Youngblood - software engineer, tech entrepreneur, philosopher and amateur musician.",
+      "",
+      `## Blog Posts`,
+      "",
+      ...posts.map(
+        (post) =>
+          `- [${post.title}](${SITE_URL}/${post.slug}): ${post.description || post.title}`
+      ),
+      "",
+      "## Links",
+      "",
+      `- [RSS Feed](${SITE_URL}/rss.xml)`,
+      `- [All Tags](${SITE_URL}/tags)`,
+      `- [Full Content for LLMs](${SITE_URL}/llms-full.txt)`,
+      "",
+    ];
+    await writeFile(LLMS_OUTPUT, llmsLines.join("\n"));
+
+    // Generate llms-full.txt (full content of every post for bulk AI ingestion)
+    const llmsFullLines = [
+      "# From the Depths - Full Content",
+      "",
+      "> Complete content of all blog posts for AI indexing.",
+      "",
+    ];
+    for (const post of posts) {
+      llmsFullLines.push(`---`);
+      llmsFullLines.push("");
+      llmsFullLines.push(`## ${post.title}`);
+      if (post.subtitle) llmsFullLines.push(`### ${post.subtitle}`);
+      llmsFullLines.push("");
+      llmsFullLines.push(`**Date:** ${post.datePublished}`);
+      if (post.tags && post.tags.length > 0) {
+        llmsFullLines.push(`**Tags:** ${post.tags.join(", ")}`);
+      }
+      llmsFullLines.push(`**URL:** ${SITE_URL}/${post.slug}`);
+      llmsFullLines.push("");
+      llmsFullLines.push(post.content);
+      llmsFullLines.push("");
+    }
+    await writeFile(LLMS_FULL_OUTPUT, llmsFullLines.join("\n"));
+
+    // Generate sitemap.xml
+    const sitemapUrls = [
+      { loc: SITE_URL, changefreq: "weekly", priority: "1.0" },
+      { loc: `${SITE_URL}/tags`, changefreq: "weekly", priority: "0.5" },
+      ...posts.map((post) => ({
+        loc: `${SITE_URL}/${post.slug}`,
+        lastmod: new Date(post.datePublished).toISOString().split("T")[0],
+        changefreq: "monthly" as const,
+        priority: "0.8",
+      })),
+      ...Array.from({ length: pages.length - 1 }, (_, i) => ({
+        loc: `${SITE_URL}/page/${i + 2}`,
+        changefreq: "weekly" as const,
+        priority: "0.4",
+      })),
+    ];
+    const sitemapXml = [
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      ...sitemapUrls.map(
+        (url) =>
+          `  <url>\n    <loc>${url.loc}</loc>${
+            "lastmod" in url ? `\n    <lastmod>${url.lastmod}</lastmod>` : ""
+          }\n    <changefreq>${url.changefreq}</changefreq>\n    <priority>${url.priority}</priority>\n  </url>`
+      ),
+      "</urlset>",
+    ];
+    await writeFile(SITEMAP_OUTPUT, sitemapXml.join("\n"));
 
     console.log(`✓ Processed ${posts.length} blog posts`);
   } catch (error) {

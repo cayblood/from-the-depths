@@ -1,0 +1,126 @@
+{
+  "tags": {
+    "Mormonism": 10,
+    "Transhumanism": 4,
+    "Theology": 10,
+    "Technology": 4,
+    "AI": 2,
+    "Philosophy": 5,
+    "Resurrection": 1,
+    "Quantum Archaeology": 1,
+    "Christianity": 1,
+    "Atonement": 1,
+    "Scripture": 2,
+    "Environment": 1,
+    "History": 1,
+    "Compassion": 3,
+    "Church": 2,
+    "Ministering": 1,
+    "Social Justice": 1,
+    "Jesus": 1,
+    "Ethics": 1,
+    "Faith": 1,
+    "Demythologization": 1,
+    "Religion": 1,
+    "Sociology": 1,
+    "Evolution": 1
+  },
+  "sortedTags": [
+    {
+      "tag": "Mormonism",
+      "count": 10
+    },
+    {
+      "tag": "Theology",
+      "count": 10
+    },
+    {
+      "tag": "Philosophy",
+      "count": 5
+    },
+    {
+      "tag": "Transhumanism",
+      "count": 4
+    },
+    {
+      "tag": "Technology",
+      "count": 4
+    },
+    {
+      "tag": "Compassion",
+      "count": 3
+    },
+    {
+      "tag": "AI",
+      "count": 2
+    },
+    {
+      "tag": "Scripture",
+      "count": 2
+    },
+    {
+      "tag": "Church",
+      "count": 2
+    },
+    {
+      "tag": "Resurrection",
+      "count": 1
+    },
+    {
+      "tag": "Quantum Archaeology",
+      "count": 1
+    },
+    {
+      "tag": "Christianity",
+      "count": 1
+    },
+    {
+      "tag": "Atonement",
+      "count": 1
+    },
+    {
+      "tag": "Environment",
+      "count": 1
+    },
+    {
+      "tag": "History",
+      "count": 1
+    },
+    {
+      "tag": "Ministering",
+      "count": 1
+    },
+    {
+      "tag": "Social Justice",
+      "count": 1
+    },
+    {
+      "tag": "Jesus",
+      "count": 1
+    },
+    {
+      "tag": "Ethics",
+      "count": 1
+    },
+    {
+      "tag": "Faith",
+      "count": 1
+    },
+    {
+      "tag": "Demythologization",
+      "count": 1
+    },
+    {
+      "tag": "Religion",
+      "count": 1
+    },
+    {
+      "tag": "Sociology",
+      "count": 1
+    },
+    {
+      "tag": "Evolution",
+      "count": 1
+    }
+  ]
+}

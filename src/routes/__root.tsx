@@ -1,10 +1,7 @@
-import { useEffect } from "react";
-import { Outlet, Link, Links, Meta, Scripts, ScrollRestoration } from "react-router";
-import "./tailwind.css";
-
-type LinkDescriptor =
-  | { rel: string; href: string; crossOrigin?: string }
-  | { rel: string; href: string };
+/// <reference types="vite/client" />
+import { useEffect, type ReactNode } from "react";
+import { Outlet, Link, HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
+import tailwindUrl from "~/tailwind.css?url";
 
 function Header() {
   return (
@@ -39,59 +36,37 @@ function Header() {
   );
 }
 
-export const links = (): LinkDescriptor[] => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-];
+export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+      { title: "From the Depths" },
+    ],
+    links: [
+      { rel: "stylesheet", href: tailwindUrl },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+      },
+      { rel: "alternate", type: "application/rss+xml", title: "From the Depths RSS", href: "/rss.xml" },
+    ],
+    scripts: [
+      { src: "/gtag.js" },
+      { src: "https://www.googletagmanager.com/gtag/js?id=G-GQ7WLCX63X", async: true },
+      {
+        children: `if (typeof window !== 'undefined' && typeof window.gtag === 'function') { window.gtag('js', new Date()); window.gtag('config', 'G-GQ7WLCX63X'); }`,
+      },
+    ],
+  }),
+  component: RootComponent,
+});
 
-export function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>From the Depths</title>
-        <Links />
-        <Meta />
-        <script src="/gtag.js" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ7WLCX63X" />
-        <script
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: Required for Google Analytics initialization
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (typeof window.gtag === 'function') {
-                window.gtag('js', new Date());
-                window.gtag('config', 'G-GQ7WLCX63X');
-              }
-            `,
-          }}
-        />
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
-    </html>
-  );
-}
-
-export function HydrateFallback() {
-  return (
-    <div className="bg-[rgb(96,61,65)] min-h-screen flex items-center justify-center">
-      <p className="text-[#d8bbbe]">Loading...</p>
-    </div>
-  );
-}
-
-export default function Root() {
+function RootComponent() {
   useEffect(() => {
-    // Ensure Google Analytics is initialized on client side (fallback for SSR)
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
       window.gtag("js", new Date());
       window.gtag("config", "G-GQ7WLCX63X");
@@ -99,7 +74,6 @@ export default function Root() {
   }, []);
 
   useEffect(() => {
-    // Fallback for fonts if links didn't run (e.g. in some preview modes)
     if (document.querySelector('link[href*="fonts.googleapis.com"]')) return;
     const preconnect1 = document.createElement("link");
     preconnect1.rel = "preconnect";
@@ -118,9 +92,25 @@ export default function Root() {
   }, []);
 
   return (
-    <div className="bg-[rgb(96,61,65)]">
-      <Header />
-      <Outlet />
-    </div>
+    <RootDocument>
+      <div className="bg-[rgb(96,61,65)]">
+        <Header />
+        <Outlet />
+      </div>
+    </RootDocument>
+  );
+}
+
+function RootDocument({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
   );
 }

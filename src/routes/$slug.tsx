@@ -1,18 +1,11 @@
 import { useMemo, type ComponentType } from "react";
-import {
-  useParams,
-  Link,
-  Navigate,
-  useLoaderData,
-  type MetaFunction,
-  type LoaderFunctionArgs,
-} from "react-router";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import blogIndexData from "~/generated/blog-index.json";
 import slugMappingData from "~/generated/blog-slugs.json";
 import { formatDate } from "~/lib/blog";
 import { Sidebar } from "~/components/Sidebar";
 import { mdxComponents } from "~/lib/mdx-components";
-import { generateBlogPostMeta, generateBlogPostSchema } from "~/lib/seo";
+import { generateBlogPostHead } from "~/lib/seo";
 import type { BlogIndex } from "~/lib/blog";
 
 const blogIndex = blogIndexData as BlogIndex;
@@ -25,65 +18,56 @@ const mdxModules = import.meta.glob<{
   frontmatter?: Record<string, unknown>;
 }>("/content/posts/*.mdx", { eager: true });
 
-// Use loader (not clientLoader) so it executes during prerendering for SSG
-// Return the filename so we can render the MDX component directly (components can't be serialized)
-export const loader = ({ params }: LoaderFunctionArgs) => {
-  const { slug } = params;
-  const post = blogIndex.posts.find((p) => p.slug === slug);
+export const Route = createFileRoute("/$slug")({
+  loader: ({ params }) => {
+    const { slug } = params;
+    const post = blogIndex.posts.find((p) => p.slug === slug);
 
-  if (!post) {
-    return { filename: null, error: null };
-  }
+    if (!post) {
+      throw redirect({ to: "/" });
+    }
 
-  if (!slug) {
-    return { filename: null, error: "No slug provided" };
-  }
+    const filename = slugMapping[slug];
+    if (!filename) {
+      throw redirect({ to: "/" });
+    }
 
-  const filename = slugMapping[slug];
-  if (!filename) {
-    return { filename: null, error: `No MDX file found for slug: ${slug}` };
-  }
+    const modulePath = `/content/posts/${filename}.mdx`;
+    const module = mdxModules[modulePath];
 
-  const modulePath = `/content/posts/${filename}.mdx`;
-  const module = mdxModules[modulePath];
+    if (!module) {
+      return { filename: null, error: `MDX module not found: ${modulePath}` };
+    }
 
-  if (!module) {
-    return { filename: null, error: `MDX module not found: ${modulePath}` };
-  }
+    return { filename, error: null };
+  },
+  head: ({ params }) => {
+    const post = blogIndex.posts.find((p) => p.slug === params.slug);
+    if (!post) {
+      return {
+        meta: [
+          { title: "Post Not Found - From the Depths" },
+          { name: "description", content: "The requested blog post could not be found." },
+        ],
+      };
+    }
+    const headConfig = generateBlogPostHead(post);
+    return {
+      meta: headConfig.meta,
+      scripts: headConfig.scripts,
+    };
+  },
+  component: BlogPostPage,
+});
 
-  // Return filename instead of component - component will be rendered directly in the component tree
-  // This ensures React can properly hydrate the MDX content
-  return { filename, error: null };
-};
-
-export const meta: MetaFunction = ({ params }) => {
-  const { slug } = params;
-  const post = blogIndex.posts.find((p) => p.slug === slug);
-
-  if (!post) {
-    return [
-      { title: "Post Not Found - From the Depths" },
-      { name: "description", content: "The requested blog post could not be found." },
-    ];
-  }
-
-  const metaTags = generateBlogPostMeta(post);
-  const schema = generateBlogPostSchema(post);
-
-  return [...metaTags, { "script:ld+json": schema }];
-};
-
-export default function BlogPostPage() {
-  const { slug } = useParams<{ slug: string }>();
-  const loaderData = useLoaderData<typeof loader>();
-  const filename = loaderData?.filename ?? null;
-  const error = loaderData?.error ?? null;
+function BlogPostPage() {
+  const { slug } = Route.useParams();
+  const { filename, error } = Route.useLoaderData();
 
   const post = useMemo(() => {
     return blogIndex.posts.find((p) => p.slug === slug);
   }, [slug]);
 
-  // Get the MDX component based on filename from loader
   const MDXContent = useMemo(() => {
     if (!filename) return null;
     const modulePath = `/content/posts/${filename}.mdx`;
@@ -92,7 +76,7 @@ export default function BlogPostPage() {
   }, [filename]);
 
   if (!post) {
-    return <Navigate to="/" replace />;
+    return null;
   }
 
   return (
@@ -118,7 +102,8 @@ export default function BlogPostPage() {
                   {post.tags.map((tag) => (
                     <Link
                       key={tag}
-                      to={`/?tag=${encodeURIComponent(tag)}`}
+                      to="/"
+                      search={{ tag }}
                       className="px-2 py-0.5 bg-[#3e2427] text-[#d8bbbe] rounded text-xs hover:bg-[#603d41] transition-colors"
                     >
                       #{tag}

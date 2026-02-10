@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "@tanstack/react-router";
 import type { BlogPost } from "~/lib/blog";
 import { formatDate } from "~/lib/blog";
 import { contentToHtml } from "~/lib/content-to-html";

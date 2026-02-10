@@ -1,31 +1,31 @@
-import { useSearchParams, type MetaFunction } from "react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import blogPagesData from "~/generated/blog-pages.json";
 import { BlogPostPreview } from "~/components/BlogPostPreview";
 import { Pagination } from "~/components/Pagination";
 import { Sidebar } from "~/components/Sidebar";
-import { generateHomeMeta, generateWebsiteSchema } from "~/lib/seo";
+import { generateHomeHead } from "~/lib/seo";
 import type { BlogPages } from "~/lib/blog";
 
 const blogPages = blogPagesData as BlogPages;
 
-export const meta: MetaFunction = ({ location }) => {
-  const searchParams = new URLSearchParams(location.search || "");
-  const tagFilter = searchParams.get("tag") || undefined;
+export const Route = createFileRoute("/")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    tag: (search.tag as string) || undefined,
+  }),
+  head: ({ search }) => {
+    const headConfig = generateHomeHead(search?.tag);
+    return {
+      meta: headConfig.meta,
+      scripts: headConfig.scripts,
+    };
+  },
+  component: Index,
+});
 
-  const metaTags = generateHomeMeta(tagFilter);
-  const schema = generateWebsiteSchema();
+function Index() {
+  const { tag: tagFilter } = Route.useSearch();
 
-  return [...metaTags, { "script:ld+json": schema }];
-};
-
-export default function Index() {
-  const [searchParams] = useSearchParams();
-  const tagFilter = searchParams.get("tag");
-
-  // Get first page posts
   const posts = blogPages.pages[0] || [];
-
-  // Filter by tag if specified
   const filteredPosts = tagFilter ? posts.filter((post) => post.tags?.includes(tagFilter)) : posts;
 
   return (
