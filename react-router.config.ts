@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default {
-  ssr: false,
+  ssr: true, // Enable SSR for prerendering - loaders execute during build, generating static HTML with content
   buildDirectory: "dist",
   async prerender() {
     // Read generated blog data to get all routes

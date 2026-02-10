@@ -1,5 +1,13 @@
-import { useEffect, useMemo, useState, type ComponentType } from "react";
-import { useParams, Link, Navigate, type MetaFunction } from "react-router";
+import { useMemo, type ComponentType } from "react";
+import { renderToString } from "react-dom/server";
+import {
+  useParams,
+  Link,
+  Navigate,
+  useLoaderData,
+  type MetaFunction,
+  type LoaderFunctionArgs,
+} from "react-router";
 import blogIndexData from "~/generated/blog-index.json";
 import slugMappingData from "~/generated/blog-slugs.json";
 import { formatDate } from "~/lib/blog";
@@ -12,11 +20,52 @@ const blogIndex = blogIndexData as BlogIndex;
 const slugMapping = slugMappingData as Record<string, string>;
 
 // Import all MDX files from content/posts using Vite's glob import
-// The eager: false makes this a lazy import for code splitting
+// Using eager: true so MDX content is available during prerendering for SSG
 const mdxModules = import.meta.glob<{
   default: ComponentType<{ components?: Record<string, ComponentType> }>;
   frontmatter?: Record<string, unknown>;
-}>("/content/posts/*.mdx");
+}>("/content/posts/*.mdx", { eager: true });
+
+// Use loader (not clientLoader) so it executes during prerendering for SSG
+// Render MDX component to HTML string so it's included in static HTML for crawlers
+export const loader = ({ params }: LoaderFunctionArgs) => {
+  const { slug } = params;
+  const post = blogIndex.posts.find((p) => p.slug === slug);
+
+  if (!post) {
+    return { mdxHtml: null, error: null };
+  }
+
+  if (!slug) {
+    return { mdxHtml: null, error: "No slug provided" };
+  }
+
+  const filename = slugMapping[slug];
+  if (!filename) {
+    return { mdxHtml: null, error: `No MDX file found for slug: ${slug}` };
+  }
+
+  const modulePath = `/content/posts/${filename}.mdx`;
+  const module = mdxModules[modulePath];
+
+  if (!module) {
+    return { mdxHtml: null, error: `MDX module not found: ${modulePath}` };
+  }
+
+  try {
+    // Render MDX component to HTML string for SSG
+    // This ensures content is in the static HTML for crawlers
+    const MDXComponent = module.default;
+    const mdxHtml = renderToString(<MDXComponent components={mdxComponents} />);
+    return { mdxHtml, error: null };
+  } catch (err) {
+    console.error("Failed to render MDX:", err);
+    return {
+      mdxHtml: null,
+      error: `Failed to load content: ${err instanceof Error ? err.message : String(err)}`,
+    };
+  }
+};
 
 export const meta: MetaFunction = ({ params }) => {
   const { slug } = params;
@@ -37,50 +86,13 @@ export const meta: MetaFunction = ({ params }) => {
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
-  const [MDXContent, setMDXContent] = useState<ComponentType<{
-    components?: Record<string, ComponentType>;
-  }> | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const loaderData = useLoaderData<typeof loader>();
+  const mdxHtml = loaderData?.mdxHtml ?? null;
+  const error = loaderData?.error ?? null;
 
   const post = useMemo(() => {
     return blogIndex.posts.find((p) => p.slug === slug);
   }, [slug]);
-
-  // Load the MDX content dynamically
-  useEffect(() => {
-    if (!slug || !post) return;
-
-    const filename = slugMapping[slug];
-    if (!filename) {
-      setError(`No MDX file found for slug: ${slug}`);
-      setIsLoading(false);
-      return;
-    }
-
-    const modulePath = `/content/posts/${filename}.mdx`;
-    const loader = mdxModules[modulePath];
-
-    if (!loader) {
-      setError(`MDX module not found: ${modulePath}`);
-      setIsLoading(false);
-      return;
-    }
-
-    setIsLoading(true);
-    setError(null);
-
-    loader()
-      .then((module) => {
-        setMDXContent(() => module.default);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error("Failed to load MDX:", err);
-        setError(`Failed to load content: ${err.message}`);
-        setIsLoading(false);
-      });
-  }, [slug, post]);
 
   if (!post) {
     return <Navigate to="/" replace />;
@@ -120,9 +132,11 @@ export default function BlogPostPage() {
             </header>
 
             <div className="prose prose-invert max-w-none text-[#d8bbbe]">
-              {isLoading && <p className="text-[#d8bbbe] opacity-75">Loading content...</p>}
               {error && <p className="text-red-400">Error: {error}</p>}
-              {MDXContent && !isLoading && !error && <MDXContent components={mdxComponents} />}
+              {mdxHtml && !error && (
+                // biome-ignore lint/security/noDangerouslySetInnerHtml: MDX HTML is from our own content files, rendered server-side
+                <div dangerouslySetInnerHTML={{ __html: mdxHtml }} />
+              )}
             </div>
           </article>
         </div>

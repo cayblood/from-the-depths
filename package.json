@@ -13,7 +13,7 @@
     "preview": "vite preview",
     "typecheck": "react-router typegen && tsc",
     "checks": "bun run format && bun run lint && bun run typecheck",
-    "yolo": "bun run checks && git add . && git commit -m 'Nondescript update' && git push"
+    "yolo": "bun run checks && git add . && git commit -m 'Update committed without description' && git push"
   },
   "dependencies": {
     "@react-router/node": "^7.13.0",
