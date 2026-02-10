@@ -98,6 +98,29 @@ export function formatDate(dateString: string): string {
 }
 
 /**
+ * Strip MDX custom component tags from content, producing clean markdown
+ * suitable for AI indexing (JSON-LD articleBody, llms-full.txt).
+ * Targets PascalCase JSX tags (TwoColumn, DropCap, etc.) while preserving
+ * standard HTML (blockquote, br, em, strong, etc.).
+ */
+export function stripMdxTags(content: string): string {
+  return (
+    content
+      // Remove MDX comments like {/* preview ends */}
+      .replace(/\{\/\*.*?\*\/\}/gs, "")
+      // Remove self-closing JSX components like <ImageWithCaption ... />
+      .replace(/<[A-Z][A-Za-z]*\b[^>]*\/>/g, "")
+      // Remove opening JSX component tags like <TwoColumn>, <DropCap>, <FloatWithParagraph ...>
+      .replace(/<[A-Z][A-Za-z]*\b[^>]*>/g, "")
+      // Remove closing JSX component tags like </TwoColumn>, </DropCap>
+      .replace(/<\/[A-Z][A-Za-z]*>/g, "")
+      // Clean up excessive blank lines left behind
+      .replace(/\n{3,}/g, "\n\n")
+      .trim()
+  );
+}
+
+/**
  * Generate tag frequency map from posts
  */
 export function generateTagFrequency(posts: BlogPost[]): TagFrequency {

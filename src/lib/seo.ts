@@ -1,4 +1,4 @@
-import type { BlogPost } from "./blog";
+import { stripMdxTags, type BlogPost } from "./blog";
 
 const BASE_URL = "https://blog.youngbloods.org";
 const SITE_NAME = "From the Depths";
@@ -59,7 +59,7 @@ export function generateBlogPostHead(post: BlogPost): HeadConfig {
     headline: post.title,
     description: post.description || "",
     datePublished: post.datePublished,
-    ...(post.preview ? { articleBody: post.preview.slice(0, 5000) } : {}),
+    ...(post.preview ? { articleBody: stripMdxTags(post.preview).slice(0, 5000) } : {}),
     author: {
       "@type": "Person",
       name: "Carl Youngblood",

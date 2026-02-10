@@ -10,6 +10,7 @@ import {
   extractPreview,
   parseKeywords,
   generateTagFrequency,
+  stripMdxTags,
   type BlogPost,
   type BlogIndex,
   type BlogPages,
@@ -228,7 +229,7 @@ async function processBlogPosts(): Promise<void> {
       }
       llmsFullLines.push(`**URL:** ${SITE_URL}/${post.slug}`);
       llmsFullLines.push("");
-      llmsFullLines.push(post.content);
+      llmsFullLines.push(stripMdxTags(post.content));
       llmsFullLines.push("");
     }
     await writeFile(LLMS_FULL_OUTPUT, llmsFullLines.join("\n"));
