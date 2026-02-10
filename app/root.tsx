@@ -60,6 +60,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <script src="/gtag.js" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ7WLCX63X" />
+        <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Required for Google Analytics initialization
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window.gtag === 'function') {
+                window.gtag('js', new Date());
+                window.gtag('config', 'G-GQ7WLCX63X');
+              }
+            `,
+          }}
+        />
       </head>
       <body>
         {children}
@@ -78,13 +89,12 @@ export function HydrateFallback() {
   );
 }
 
-const GA_MEASUREMENT_ID = "G-GQ7WLCX63X";
-
 export default function Root() {
   useEffect(() => {
-    if (typeof window.gtag === "function") {
+    // Ensure Google Analytics is initialized on client side (fallback for SSR)
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
       window.gtag("js", new Date());
-      window.gtag("config", GA_MEASUREMENT_ID);
+      window.gtag("config", "G-GQ7WLCX63X");
     }
   }, []);
 
