@@ -17,6 +17,7 @@ export default defineConfig({
         crawlLinks: true,
         autoSubfolderIndex: true,
         failOnError: true,
+        filter: (page: { path: string }) => !page.path.includes("?"),
       },
     }),
     react(),
