@@ -1,12 +1,12 @@
-import type { Plugin } from "vite";
 import { compile } from "@mdx-js/mdx";
-import remarkGfm from "remark-gfm";
+import type { Root } from "mdast";
+import rehypeHighlight from "rehype-highlight";
 import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import remarkSmartypants from "remark-smartypants";
-import rehypeHighlight from "rehype-highlight";
-import type { Root } from "mdast";
 import { visit } from "unist-util-visit";
+import type { Plugin } from "vite";
 
 /**
  * Remark plugin that collapses line breaks within paragraphs.

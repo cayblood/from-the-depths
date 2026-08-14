@@ -1,12 +1,12 @@
-import { useMemo, type ComponentType } from "react";
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { type ComponentType, useMemo } from "react";
+import { Sidebar } from "~/components/Sidebar";
 import blogIndexData from "~/generated/blog-index.json";
 import slugMappingData from "~/generated/blog-slugs.json";
+import type { BlogIndex } from "~/lib/blog";
 import { formatDate } from "~/lib/blog";
-import { Sidebar } from "~/components/Sidebar";
 import { mdxComponents } from "~/lib/mdx-components";
 import { generateBlogPostHead } from "~/lib/seo";
-import type { BlogIndex } from "~/lib/blog";
 
 const blogIndex = blogIndexData as BlogIndex;
 const slugMapping = slugMappingData as Record<string, string>;

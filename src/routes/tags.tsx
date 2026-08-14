@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import blogTagsData from "~/generated/blog-tags.json";
-import { TagCloud } from "~/components/TagCloud";
 import { Sidebar } from "~/components/Sidebar";
-import { generateTagsHead } from "~/lib/seo";
+import { TagCloud } from "~/components/TagCloud";
+import blogTagsData from "~/generated/blog-tags.json";
 import type { BlogTags } from "~/lib/blog";
+import { generateTagsHead } from "~/lib/seo";
 
 const blogTags = blogTagsData as BlogTags;
 

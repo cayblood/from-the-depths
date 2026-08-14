@@ -1,6 +1,7 @@
 /// <reference types="vite/client" />
-import { useEffect, type ReactNode } from "react";
-import { Outlet, Link, HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
+
+import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/react-router";
+import { type ReactNode, useEffect } from "react";
 import tailwindUrl from "~/tailwind.css?url";
 
 function Header() {

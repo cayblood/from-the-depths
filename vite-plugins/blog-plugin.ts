@@ -1,20 +1,20 @@
-import type { Plugin } from "vite";
-import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
-import { join, dirname } from "node:path";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import matter from "gray-matter";
 import RSS from "rss";
+import type { Plugin } from "vite";
+import { parse } from "yaml";
 import {
-  extractSlugFromFilename,
-  extractDateFromFilename,
-  extractPreview,
-  parseKeywords,
-  generateTagFrequency,
-  stripMdxTags,
-  type BlogPost,
   type BlogIndex,
   type BlogPages,
+  type BlogPost,
   type BlogTags,
+  extractDateFromFilename,
+  extractPreview,
+  extractSlugFromFilename,
+  generateTagFrequency,
+  parseKeywords,
+  stripMdxTags,
 } from "../src/lib/blog.js";
 import { contentToHtml } from "../src/lib/content-to-html.js";
 
@@ -34,6 +34,26 @@ const LLMS_OUTPUT = join(PUBLIC_DIR, "llms.txt");
 const LLMS_FULL_OUTPUT = join(PUBLIC_DIR, "llms-full.txt");
 const POSTS_PER_PAGE = 10;
 const SITE_URL = "https://blog.youngbloods.org";
+
+interface Frontmatter {
+  datePublished?: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  defaultImage?: string;
+  keywords?: string | string[];
+  tags?: string[];
+}
+
+function parseFrontmatter(source: string): { data: Frontmatter; content: string } {
+  const match = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/.exec(source);
+  if (!match) return { data: {}, content: source };
+
+  return {
+    data: parse(match[1], { schema: "yaml-1.1" }) as Frontmatter,
+    content: source.slice(match[0].length),
+  };
+}
 
 async function processBlogPosts(): Promise<void> {
   try {
@@ -72,7 +92,7 @@ async function processBlogPosts(): Promise<void> {
     for (const filename of mdxFiles) {
       const filePath = join(POSTS_DIR, filename);
       const fileContent = await readFile(filePath, "utf-8");
-      const { data, content } = matter(fileContent);
+      const { data, content } = parseFrontmatter(fileContent);
 
       // Extract slug from filename
       const slug = extractSlugFromFilename(filename);

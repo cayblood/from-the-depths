@@ -25,7 +25,7 @@ export function DropCap({ children }: DropCapProps) {
   const extractText = (node: ReactNode): string => {
     if (typeof node === "string") return node;
     if (typeof node === "number") return String(node);
-    if (isValidElement(node) && node.props.children) {
+    if (isValidElement<{ children?: ReactNode }>(node) && node.props.children) {
       return extractText(node.props.children);
     }
     if (Array.isArray(node)) {

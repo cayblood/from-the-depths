@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import blogPagesData from "~/generated/blog-pages.json";
 import { BlogPostPreview } from "~/components/BlogPostPreview";
 import { Pagination } from "~/components/Pagination";
 import { Sidebar } from "~/components/Sidebar";
-import { generateHomeHead } from "~/lib/seo";
+import blogPagesData from "~/generated/blog-pages.json";
 import type { BlogPages } from "~/lib/blog";
+import { generateHomeHead } from "~/lib/seo";
 
 const blogPages = blogPagesData as BlogPages;
 
