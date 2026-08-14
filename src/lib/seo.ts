@@ -1,10 +1,16 @@
-import { stripMdxTags, type BlogPost } from "./blog";
+import { type BlogPost, stripMdxTags } from "./blog";
 
 const BASE_URL = "https://blog.youngbloods.org";
 const SITE_NAME = "From the Depths";
 const SITE_DESCRIPTION =
   "Blog and personal website of Carl Youngblood - software engineer, tech entrepreneur, philosopher and amateur musician.";
-const DEFAULT_IMAGE = `${BASE_URL}/carl-hedcut.webp`;
+const DEFAULT_IMAGE = `${BASE_URL}/social-sharing.webp`;
+const DEFAULT_IMAGE_ALT = "From the Depths — Carl Youngblood";
+const DEFAULT_IMAGE_META = [
+  { property: "og:image:type", content: "image/webp" },
+  { property: "og:image:width", content: "1200" },
+  { property: "og:image:height", content: "630" },
+];
 
 interface HeadConfig {
   meta: Array<Record<string, string>>;
@@ -24,6 +30,7 @@ export function getFullUrl(path: string): string {
 export function generateBlogPostHead(post: BlogPost): HeadConfig {
   const url = getFullUrl(`/${post.slug}`);
   const image = post.defaultImage ? getFullUrl(post.defaultImage) : DEFAULT_IMAGE;
+  const imageAlt = post.defaultImage ? post.title : DEFAULT_IMAGE_ALT;
   const keywords = Array.isArray(post.keywords) ? post.keywords.join(", ") : post.keywords || "";
 
   const meta: Array<Record<string, string>> = [
@@ -38,7 +45,8 @@ export function generateBlogPostHead(post: BlogPost): HeadConfig {
     { property: "og:type", content: "article" },
     { property: "og:url", content: url },
     { property: "og:image", content: image },
-    { property: "og:image:alt", content: post.title },
+    { property: "og:image:alt", content: imageAlt },
+    ...(!post.defaultImage ? DEFAULT_IMAGE_META : []),
     { property: "og:site_name", content: SITE_NAME },
 
     // Twitter Card tags
@@ -46,6 +54,7 @@ export function generateBlogPostHead(post: BlogPost): HeadConfig {
     { name: "twitter:title", content: post.title },
     { name: "twitter:description", content: post.description || "" },
     { name: "twitter:image", content: image },
+    { name: "twitter:image:alt", content: imageAlt },
 
     // Article-specific tags
     { property: "article:published_time", content: post.datePublished },
@@ -154,7 +163,8 @@ export function generateHomeHead(tagFilter?: string): HeadConfig {
       { property: "og:type", content: "website" },
       { property: "og:url", content: BASE_URL },
       { property: "og:image", content: DEFAULT_IMAGE },
-      { property: "og:image:alt", content: "Carl Youngblood" },
+      { property: "og:image:alt", content: DEFAULT_IMAGE_ALT },
+      ...DEFAULT_IMAGE_META,
       { property: "og:site_name", content: SITE_NAME },
 
       // Twitter Card tags
@@ -162,6 +172,7 @@ export function generateHomeHead(tagFilter?: string): HeadConfig {
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: DEFAULT_IMAGE },
+      { name: "twitter:image:alt", content: DEFAULT_IMAGE_ALT },
     ],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(websiteSchema) }],
   };
@@ -194,6 +205,8 @@ export function generatePaginatedHead(page: number, tagFilter?: string): HeadCon
         ),
       },
       { property: "og:image", content: DEFAULT_IMAGE },
+      { property: "og:image:alt", content: DEFAULT_IMAGE_ALT },
+      ...DEFAULT_IMAGE_META,
       { property: "og:site_name", content: SITE_NAME },
 
       // Twitter Card tags
@@ -201,6 +214,7 @@ export function generatePaginatedHead(page: number, tagFilter?: string): HeadCon
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: DEFAULT_IMAGE },
+      { name: "twitter:image:alt", content: DEFAULT_IMAGE_ALT },
     ],
   };
 }
@@ -223,6 +237,8 @@ export function generateTagsHead(): HeadConfig {
       { property: "og:type", content: "website" },
       { property: "og:url", content: getFullUrl("/tags") },
       { property: "og:image", content: DEFAULT_IMAGE },
+      { property: "og:image:alt", content: DEFAULT_IMAGE_ALT },
+      ...DEFAULT_IMAGE_META,
       { property: "og:site_name", content: SITE_NAME },
 
       // Twitter Card tags
@@ -230,6 +246,7 @@ export function generateTagsHead(): HeadConfig {
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: DEFAULT_IMAGE },
+      { name: "twitter:image:alt", content: DEFAULT_IMAGE_ALT },
     ],
   };
 }
