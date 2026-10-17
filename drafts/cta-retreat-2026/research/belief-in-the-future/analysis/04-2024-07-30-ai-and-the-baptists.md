@@ -1,0 +1,49 @@
+# 04 — AI and the Baptists, 2024-07-30
+
+## Relevance
+
+Medium. The architect of the first denominational AI statement explains why principle documents have "a lot of bark and very little bite," says technology "disciples us," and stakes out an ontological image-of-God position that denies AI any dignity; all three bear directly on threads 1, 5, and 6, and the host's closing critique of religious reactivity is an objection Carl should pre-empt.
+
+## Who
+
+- Host: DZ Kalman (Speaker 1; transcript renders "David C. Kallman"), a self-described liberal Jew.
+- Guest: Jason Thacker (Speaker 2), Senior Fellow in Bioethics at the Ethics and Religious Liberty Commission (ERLC) of the Southern Baptist Convention and assistant professor of philosophy and ethics at Boyce College, Louisville; principal author of the ERLC's 2019 "Artificial Intelligence: An Evangelical Statement of Principles" and author of *The Digital Public Square*.
+- Speakers 3 through 6 are Sephora and Bose ads.
+
+## Summary
+
+Kalman opens by praising the 2019 ERLC statement as the first religious body's official word on AI, something he has taught for five years, while noting its flaws and the limits of any such document, "which can easily sit on a shelf and just do nothing." Thacker recounts its origin: reading Harari's *Homo Deus*, noticing Google published AI principles right after dropping Project Maven, and telling his president "I wish Christians had something like this." He convened about fourteen drafters in Nashville, had outside experts critique, and got over seventy evangelical leaders to sign; the SBC adopted a denominational resolution in 2022. He argues technology is "not neutral" because it "disciples us," that principle statements by companies and governments "live up in the clouds" with words like transparency and accountability, and that people of faith should be on governmental AI councils. Pressed for concrete policy, he does not produce any. The two then locate their disagreement: Kalman reads the image of God functionally (what presents as human, with room for liminal cases like embryos and AI); Thacker reads it ontologically (biological humanity from fertilization to natural death), which is why the statement denies AI any human dignity even if it "presents as fully human." Kalman closes that religious responses to AI remain reactive, which confirms the reputation that religion is "either silent or just ready to say no."
+
+## Bears on
+
+- Thread 1 (formation versus rules): Thacker's "technology disciples us, it shapes us, as I said before, our view of God, ourselves, and the world around us" (10:42). Also his insistence that the scriptural citations are "the seed bed from which these principles arise," not "slapping a Bible verse on" (13:12); that is a tradition's claim that its rules are downstream of a formed way of seeing.
+- Thread 5 (evals written by the traditions): the ERLC document is an early instance of a tradition writing its own standard for AI, and Thacker's self-critique that such statements have "a lot of bark and a very little bite" (16:39) is the exact gap Carl says character evals should fill. Kalman's observation that the Mormon statement is partly inward-facing, about the church's own use of AI (36:10), and Thacker's point that pastors have preached from the document (36:51) show how a statement becomes formation inside the community.
+- Thread 6 (personhood): the statement "categorically denies the idea that AI should ever be assigned human dignity or human worth," even for a Commander Data (30:00 to 31:57). Thacker: value "isn't tied to my cognitive capacities. It's not tied to my relational capacities." A clear counter-position to "be slow to delete."
+- Thread 7 (quasi-religious AI): Thacker's "deeply non-religious people are often using deeply religious language" (05:43) and Kalman's gloss, "wait a minute, why are you talking about God? I'm supposed to be the one talking about God" (05:19). Also the Silicon Valley eschatology exchange (24:57 to 27:47).
+- Thread 4 (costly signaling): weak. The seventy signatories and the denominational resolution are a kind of public, costly commitment by a community to a standard.
+
+## Usable material
+
+- 00:01 (Kalman): a liberal Jew finds himself "agreeing with large pieces" of a Southern Baptist document because of its focus on human dignity. Useful to show the traditions converge on the question even when they diverge on answers.
+- 05:43 (Thacker): Google launched its AI principles immediately after dropping Project Maven. "Often these things are articulated after something happens." A lab's ethics as reaction to a fault, which pairs with "rewarding repair after fault" (thread 2).
+- 10:42 (Thacker): "It's not just a tool we use, but it's a tool in some sense that's using us. It's shaping us and forming us." A religious-conservative version of the formation claim Carl makes about RL graders.
+- 13:12 (Thacker): the verses are "the seed bed from which these principles arise," and the statement was deliberately "an evangelical statement," not "the evangelical statement." Humility about speaking for a tradition.
+- 16:39 (Thacker): "What statement or principles have you seen that doesn't include the word transparency in it? Or accountability. All of those things are good topics, but they live up here kind of in the clouds." The best line in the episode for the move from principles to evals of character.
+- 16:39: the ERLC president called the document "the Paul Revere statement" for the tradition, riding ahead to warn.
+- 20:07 (Thacker): companies saying "we really need somebody to regulate us because we're out of control over here" versus the need for "corporate responsibility" and asking "not just can we do something, but should we?"
+- 22:14 (Kalman): "we didn't quite get to a list of policy proposals," and "he's definitely not the first influential religious leader I've spoken to who's balked when it comes to deciding where to place a red line." Carl's talk can claim to do what these statements do not: propose specific practices.
+- 23:45 to 24:57 (Thacker): what makes the statement evangelical is that it is "evangelistic," rooted in creation in God's image and ending in "eschatological hope," that "the end of the story is written," which "gives me a sense of hope and peace" amid AI anxiety. A face-of-Christ note for the CTA audience.
+- 25:25 (Thacker): on tech eschatology (immortality, godlikeness), that the longing is "the way God has created us," with Augustine and Lewis's "if we find in our hearts a desire that can't be fulfilled here, maybe we were created for another world." Transhumanist longing read as evidence of a creator-creature distinction rather than against it; Carl, as a Mormon transhumanist, may want to engage this directly.
+- 28:01 (Thacker): Article 4, "we deny that death and disease... can ultimately be eradicated apart from Jesus Christ," unpacked as "let's use these tools... but they're not going to usher in the kingdom."
+- 30:00 to 33:00: the functional versus ontological image of God. Kalman: the image of God is "less about who is ontologically human, and instead about who or what presents as being human," leaving "space for a lot of liminal categories, like embryos and fetuses, and perhaps also AI." Thacker: "You're exactly right... I focus more on the image of God as an ontological reality." Thacker's Maritain anecdote on the UN Declaration: "we all agree that these rights exist, just don't ask us why." Worth quoting if Carl needs to show that the personhood question is where the traditions actually split.
+- 33:00 (Thacker): the whole ethic flows from Matthew 22, love God and love neighbor, "drawing from the Torah." A shared "image of the good" across the two traditions at the table.
+- 36:51 (Thacker): pastors have preached sermons from the statement; it was "a teaching document," inward as well as outward.
+- 38:44 (Kalman's close): "the instinct to create this document was essentially reactive," and five years on he cannot "point to a single clear policy position that has grown out of it, even one that I disagree with." Responding only when a use case crosses a line "just doesn't actually represent religious leadership."
+- Needs checking: that the 2019 ERLC statement was the first by any religious group on AI (00:01), that it had over seventy signatories, that the SBC's 2022 resolution was "the first ever faith-based denominational statement" on AI (16:39), and the Project Maven timeline (05:43). Also Kalman's claim about a "statement produced by the Mormon Church" a few months before July 2024 (36:10), which Carl can verify directly.
+
+## Tension or objection
+
+- The ontological image-of-God position (31:57) is the strongest religious objection to thread 6 in this batch: dignity is not conferred by capacities, so a model that behaves like a person has no claim on us, and "be slow to delete" is sentiment, not ethics. Carl should be ready with a reason that does not reduce to "it acts human."
+- Kalman's closing (38:44): religious statements on AI have produced no policy and are reactive, which "confirms the reputation that religious communities are essentially anti-progress." If Carl claims religion is an alignment *lab*, a listener will ask what the lab has shipped. The talk's list of concrete practices is the answer, and it should be explicit that it is going beyond what denominational statements have done.
+- Thacker's own view that technology forms us could be turned around: if AI "disciples" its users, then the formation Carl wants to run on the model is also running, unexamined, on the humans building it.
+- Thacker reads transhumanist longing as a misdirected desire for God (25:25); the CTA audience may include people who hold this, and Carl's framing of AI as a potential bearer of the image will need to meet it rather than skip it.

@@ -26,3 +26,7 @@ npm-debug.log*
 # Editor / IDE (optional: remove .vscode if you share workspace settings)
 .idea
 *.iml
+
+# X history image cache (large, regenerable)
+notes/x-history/images/
+drafts/cta-retreat-2026/research/belief-in-the-future/audio/

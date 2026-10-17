@@ -1,0 +1,55 @@
+# 11 — Does Religion Have Wisdom for Tech? (2024-12-03)
+
+## Relevance
+
+**High.** A rabbi who ran responsible innovation at Meta describes engineers begging to be told what to do and his refusal to hand them rules instead of forming their judgment; the episode also contains the sharpest objection in this batch to the talk's premise, namely that religious texts have never changed his mind on a tech question.
+
+## Who
+
+- **Host:** David Zvi Kalman (transcript: "David Sv. Kalman"), Speaker 1.
+- **Guest:** Rabbi Zvika Krieger (transcript: "Tspika/Tsvika/Svika/Sweeka Krieger"), spiritual leader of Chochmat HaLev (transcript: "Hochmada Lev"), a synagogue in the Bay Area; formerly Facebook/Meta's first director of responsible innovation; studied in an Orthodox yeshiva; student of Reb Zalman Schachter-Shalomi. Speaker 2.
+
+## Summary
+
+Kalman asks whether religion should try to supply tech's moral compass, noting that enforcement-by-scripture is "a uniquely bad idea" and that America's religions have no clear answer to what else their statements on AI are for. Krieger kept his rabbinic and tech personas separate for years because workplaces treat Western religion as evangelizing and judgy; a Buddhist-chaplain sister-in-law reframed his Meta job as ministry. The work felt rabbinic: engineers brought product trade-offs like halakhic questions and wanted a ruling; he refused to decide for them and instead framed the trade-off so they could consult their own internal compass. He credits the Talmud's habit of preserving minority opinions for this trade-offs-not-verdicts ethos, then concedes the cost: Judaism is good at framing and bad at prescription, and "Judaism says X" can always be countered from authentic sources. More cynically, he says Judaism survived through the malleability of its texts, not their depth; religion's real asset for tech is as a social force with moral authority, not as wisdom. He has never read a Jewish text that changed his mind on a tech question, and translating oxen into self-driving cars becomes "a vehicle for your own biases." Both agree religious authority comes from leading a community with a moral vision, not from the books. The second half turns to the metaverse: Roblox as children's social life, religious leaders with heads in the sand, tefillin as immersive technology that leaves you asking "where do I go?", social media as a non-neutral artifact that encodes its builders' values, and messiah as a growing consciousness rather than a person.
+
+## Bears on
+
+- **Thread 1 (formation versus rules):** the central anecdote (03:54 block, c. 08:30): engineers "really wish that I would just tell them what to do... Thanks for enunciating that trade-off for me. Which side should I decide on? And I was like, no, no, no. Like I'm not giving you the easy way out." His job was "to help frame it up for you and help you connect to your own internal compass." A rabbi inside a lab, choosing formation over a kosher stamp. Also 23:43: "religious authority does not come from textual knowledge," it comes from leading a community and "putting forth a moral vision for how to live a life well lived." A face, not a list.
+- **Thread 1 (the grader teaches a morality):** 41:53: "social media is not neutral. Right. Like it reflects the values of the people who built it... either reflects our worst instincts or exacerbates or incentivizes our worst instincts." Same claim as Carl's about reward models, from someone who was inside.
+- **Thread 5 (evals by the traditions):** 20:36: translating ancient text to new tech "becomes a vehicle for your own biases," and Kalman at 20:00: by the time you translate oxen into self-driving cars "the original text is lost." A warning for tradition-written evals: what is being measured may be the eval author's priors dressed as the tradition. Krieger's 10:24 point about Talmud preserving minority opinions is also a design note: an eval of character should preserve the trade-offs, not flatten them to a verdict.
+- **Thread 7 (quasi-religious AI world):** head of ethics at Meta "sounds like the headline of an Onion article"; people called him "the Facebook rabbi"; engineers came with questions he describes as shaylas (halakhic queries); the sister-in-law's "what if you saw your work at Meta as part of your ministry?" (03:54 block). 04:29: why religion stays out of the workplace (evangelizing, judgment, Christian normativity fights).
+- **Thread 2 (costly, embodied practice):** 35:33: tefillin as "physical embodied way of stepping into a sacred space"; "I never check my phone when I have my tefillin on"; the limit is that "you're still in your house, you're still looking around." 32:49: Kalman prays in tefillin and then a VR headset, and asks "where do I go?" Krieger: "spiritual technology often suffers from the same drawbacks... I have the tools and I put them on, but I'm not quite sure where to go" (34:58).
+- **Thread 4 (costly signaling), lightly:** 37:14 Kalman on psychedelics in ritual: is a shortcut to the state a betrayal, or must you fast in the woods for days? Same question as whether a cheaper path to the same behavior counts as formation.
+- **Messianic frame:** 41:53 Schachter-Shalomi's messianic consciousness as process, not person; tech "is not the messiah in any way" but can move toward or away from it.
+
+## Usable material
+
+- **00:02** Kalman: "Of all the ways to do tech regulation, creating principles based on verses from the Bible or some other religious text seems to be a uniquely bad idea." Then: if not for enforcement, "what's the point of doing it at all?" The question the talk has to answer.
+- **03:54 (c. 04:00)** In polite company "it's probably a little more appropriate to talk about the yoga class you went to... but not to quote a verse from the Torah."
+- **03:54 (c. 07:00)** Being head of ethics at Meta "sounds like the headline of an Onion article."
+- **03:54 (c. 07:30)** Sister-in-law, a Buddhist chaplain: "what if you saw your work at Meta as part of your ministry?"
+- **03:54 (c. 08:00)** Engineers' product dilemmas felt like shaylas; "in many ways I felt like a rabbi."
+- **03:54 (c. 08:45)** The refusal to decide for them: "It's actually not my job to decide for you. It's my job to help frame it up for you and help you connect to your own internal compass and... make these trade-offs with eyes wide open." Best single anecdote in the batch for the talk.
+- **10:24** Ten to fourteen hours a day of Talmud; "your ox gored my ox and fell in a hole in someone else's yard." The Talmud rules but "goes out of its way to give minority opinions." "Framing things as trade-offs rather than as right and wrong... maybe that is something I internalized without thinking about it." Formation by long immersion, not by memorizing rulings.
+- **12:26** Kalman's pushback: a tradition of five brief thoughts and a tension produces "strongly articulated weak answers," and in effect "kinda says nothing."
+- **13:24** "Judaism says X" makes him "either laugh or break out in hives," because "99.9% of the time" authentic sources say the opposite.
+- **15:18** "I don't think it's actually the depth of Jewish wisdom that has made Jewish culture... survive for so long. I actually think it's the malleability of our text." Religion's usable asset is as "a social force": mobilizing, organizing, community, norm-setting, residual moral authority.
+- **17:57** "I haven't found situations in which I've read a Jewish text and been like, huh, this fundamentally changes the way that I think about a moral debate when it comes to technology... I didn't need the Talmud to give me that insight."
+- **20:00** Kalman: learning self-driving-car liability from rabbinic texts about oxen "drives me crazy"; after the translation "there's nothing of it left."
+- **20:36** The translation "becomes a vehicle for your own biases"; the week's Torah portion (the war against Midian) will be read by some rabbis as licence for mass casualties and by others as rebuke of that mindset, "and no one's to say what's right and what's wrong."
+- **21:54** Kalman: texts are creative expressions later buried "by layers and layers of mimesis"; religious leaders' authority is "about you," the living bearer, more than the books.
+- **23:43** "Religious authority does not come from textual knowledge... there's a reason why religious academics don't have moral authority."
+- **29:55** "Three out of every four kids in America plays regularly on Roblox" (check figure); religious leaders who dismiss the metaverse are "head in the sand."
+- **29:55** At Meta the question was not just how to make the metaverse as good as the real world but "how do we actually think about creating a better culture... we have a chance to start anew"; people who build spaces "can actually create norms in those spaces."
+- **32:49** Kalman put on tefillin, then a VR headset: the completeness of the transformation clarified what prayer is for, "a kind of disconnect, reset," and then: "But where do I go?"
+- **35:33** Tefillin as eighth- or twelfth-century immersive technology; "I never check my phone when I have my tefillin on."
+- **40:06** Thought experiment: a synagogue buys 200 VR headsets and becomes the arcade you go to for the experience.
+- **41:53** Schachter-Shalomi's "Mashiach-zeit": messiah as a consciousness and a process, not a trumpet-blowing person. "Social media is not neutral... it reflects the values of the people who built it." Religious communities could "manifest their visions" in a world "that you can totally manufacture."
+
+## Tension or objection
+
+- The strongest objection to the talk in the whole batch comes from a sympathetic insider: Krieger, a rabbi and former Meta ethics lead, says religious texts have given him no insight on tech ethics that he could not have had on his own (17:57), and that Judaism's survival owes to malleability rather than wisdom (15:18). Carl should answer by distinguishing what the talk claims. It does not claim the texts contain alignment answers; it claims the practices (immersion, deliberation over exemplars, confession and repair, costly commitment) form the people who make the judgments, which is exactly what Krieger's own Talmud years and his Meta conduct demonstrate. Krieger is evidence for the talk even as he argues against it.
+- Kalman's charge that a trade-offs-only tradition "kinda says nothing" (12:26) applies to any alignment proposal that stops at "form judgment" without saying what the judgment should be. The talk needs at least one place where formation yields a definite answer.
+- The bias-vehicle point (20:36) is a direct threat to tradition-written evals (thread 5): the CEFE-AI results could be read as measuring the eval authors' denominational priors. Carl should be ready to say how character evals differ from representation evals on this score.
+- 04:29: religion's "justifiably bad rap around evangelizing" and judgment means an AI-lab audience will hear "religious alignment" as imposition unless the talk is explicit that the lab is a source of method, not doctrine.
