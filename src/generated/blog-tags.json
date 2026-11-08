@@ -1,8 +1,11 @@
 {
   "tags": {
+    "Mormonism": 16,
+    "Theology": 14,
+    "Atonement": 2,
+    "Grace": 1,
+    "Scripture": 3,
     "Transhumanism": 9,
-    "Mormonism": 15,
-    "Theology": 13,
     "Technology": 6,
     "Education": 1,
     "Blockchain": 1,
@@ -12,8 +15,6 @@
     "Resurrection": 1,
     "Quantum Archaeology": 1,
     "Christianity": 1,
-    "Atonement": 1,
-    "Scripture": 2,
     "Decentralization": 1,
     "Governance": 1,
     "Environment": 1,
@@ -34,11 +35,11 @@
   "sortedTags": [
     {
       "tag": "Mormonism",
-      "count": 15
+      "count": 16
     },
     {
       "tag": "Theology",
-      "count": 13
+      "count": 14
     },
     {
       "tag": "Transhumanism",
@@ -53,15 +54,19 @@
       "count": 6
     },
     {
+      "tag": "Scripture",
+      "count": 3
+    },
+    {
       "tag": "Compassion",
       "count": 3
     },
     {
-      "tag": "AI",
+      "tag": "Atonement",
       "count": 2
     },
     {
-      "tag": "Scripture",
+      "tag": "AI",
       "count": 2
     },
     {
@@ -85,6 +90,10 @@
       "count": 2
     },
     {
+      "tag": "Grace",
+      "count": 1
+    },
+    {
       "tag": "Education",
       "count": 1
     },
@@ -106,10 +115,6 @@
     },
     {
       "tag": "Christianity",
-      "count": 1
-    },
-    {
-      "tag": "Atonement",
       "count": 1
     },
     {
