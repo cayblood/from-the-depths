@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  ACM certificate for youngbloods.org and *.youngbloods.org, DNS-validated
+  through the Route 53 hosted zone. Must live in us-east-1 for CloudFront.
+
+Parameters:
+  DomainName:
+    Type: String
+    Default: youngbloods.org
+  HostedZoneId:
+    Type: AWS::Route53::HostedZone::Id
+    Default: Z01503521UHW61KJFL85P
+
+Resources:
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Ref DomainName
+      SubjectAlternativeNames:
+        - !Sub "*.${DomainName}"
+      ValidationMethod: DNS
+      # The apex and the wildcard validate through the same CNAME record, and
+      # listing both here makes CloudFormation submit a duplicate Route 53
+      # change that Route 53 rejects. One entry validates both names.
+      DomainValidationOptions:
+        - DomainName: !Ref DomainName
+          HostedZoneId: !Ref HostedZoneId
+      KeyAlgorithm: RSA_2048
+
+Outputs:
+  CertificateArn:
+    Value: !Ref Certificate
+    Export:
+      Name: !Sub "${AWS::StackName}-CertificateArn"

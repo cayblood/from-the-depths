@@ -1,0 +1,206 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Static site: private S3 bucket served through CloudFront with origin access
+  control, a viewer-request function that maps directory URLs to index.html,
+  and optional Route 53 alias records. Deploy in us-west-2; the certificate it
+  references must come from us-east-1.
+
+Parameters:
+  SiteDomain:
+    Type: String
+    Description: Primary hostname (e.g. blog.youngbloods.org).
+  BucketName:
+    Type: String
+    Description: >-
+      S3 bucket that holds the site. CloudFront reads it through origin access
+      control, so the name need not match the hostname.
+  AlternateDomains:
+    Type: CommaDelimitedList
+    Default: ""
+    Description: Additional hostnames served by the same distribution (e.g. www.youngbloods.org).
+  CertificateArn:
+    Type: String
+    Description: ACM certificate in us-east-1 covering every hostname above.
+  HostedZoneId:
+    Type: AWS::Route53::HostedZone::Id
+    Default: Z01503521UHW61KJFL85P
+  CreateDnsRecords:
+    Type: String
+    AllowedValues: ["true", "false"]
+    Default: "false"
+    Description: Point the hostnames at the distribution. Leave false until the site is verified.
+
+Conditions:
+  HasAlternateDomains: !Not [!Equals [!Join ["", !Ref AlternateDomains], ""]]
+  CreateDns: !Equals [!Ref CreateDnsRecords, "true"]
+  CreateAlternateDns: !And [!Condition CreateDns, !Condition HasAlternateDomains]
+
+Resources:
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: !Ref BucketName
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AllowCloudFrontReadOnly
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub "${SiteBucket.Arn}/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}"
+
+  OriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "${SiteDomain}-oac"
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  IndexRewriteFunction:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Join ["-", [!Join ["-", !Split [".", !Ref SiteDomain]], "index-rewrite"]]
+      AutoPublish: true
+      FunctionConfig:
+        Comment: Serve <dir>/index.html for directory-style URLs
+        Runtime: cloudfront-js-2.0
+      FunctionCode: |
+        function handler(event) {
+          var request = event.request;
+          var uri = request.uri;
+          if (uri.endsWith('/')) {
+            request.uri = uri + 'index.html';
+          } else if (!uri.split('/').pop().includes('.')) {
+            request.uri = uri + '/index.html';
+          }
+          return request;
+        }
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Ref SiteDomain
+        Enabled: true
+        HttpVersion: http2and3
+        IPV6Enabled: true
+        PriceClass: PriceClass_100
+        DefaultRootObject: index.html
+        Aliases: !If
+          - HasAlternateDomains
+          - !Split [",", !Join [",", [!Ref SiteDomain, !Join [",", !Ref AlternateDomains]]]]
+          - [!Ref SiteDomain]
+        ViewerCertificate:
+          AcmCertificateArn: !Ref CertificateArn
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
+        Origins:
+          - Id: s3
+            DomainName: !GetAtt SiteBucket.RegionalDomainName
+            OriginAccessControlId: !Ref OriginAccessControl
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+        DefaultCacheBehavior:
+          TargetOriginId: s3
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD, OPTIONS]
+          CachedMethods: [GET, HEAD]
+          Compress: true
+          # Managed policy "CachingOptimized"
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          FunctionAssociations:
+            - EventType: viewer-request
+              FunctionARN: !GetAtt IndexRewriteFunction.FunctionMetadata.FunctionARN
+        CustomErrorResponses:
+          # S3 answers 403 for missing keys behind OAC. Hand the SPA shell back
+          # with a real 404 status, as the GitHub Pages 404.html fallback did.
+          - ErrorCode: 403
+            ResponseCode: 404
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 10
+          - ErrorCode: 404
+            ResponseCode: 404
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 10
+
+  DnsRecordA:
+    Type: AWS::Route53::RecordSet
+    Condition: CreateDns
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Ref SiteDomain
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt Distribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2 # CloudFront's fixed hosted zone id
+        EvaluateTargetHealth: false
+
+  DnsRecordAAAA:
+    Type: AWS::Route53::RecordSet
+    Condition: CreateDns
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Ref SiteDomain
+      Type: AAAA
+      AliasTarget:
+        DNSName: !GetAtt Distribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+        EvaluateTargetHealth: false
+
+  # Alias records for the first alternate domain (www), when one is given.
+  AlternateDnsRecordA:
+    Type: AWS::Route53::RecordSet
+    Condition: CreateAlternateDns
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Select [0, !Ref AlternateDomains]
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt Distribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+        EvaluateTargetHealth: false
+
+  AlternateDnsRecordAAAA:
+    Type: AWS::Route53::RecordSet
+    Condition: CreateAlternateDns
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Select [0, !Ref AlternateDomains]
+      Type: AAAA
+      AliasTarget:
+        DNSName: !GetAtt Distribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+        EvaluateTargetHealth: false
+
+Outputs:
+  BucketName:
+    Value: !Ref SiteBucket
+  DistributionId:
+    Value: !Ref Distribution
+  DistributionDomainName:
+    Value: !GetAtt Distribution.DomainName

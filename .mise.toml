@@ -1,6 +1,12 @@
 [tools]
 bun = "latest"
 
+[env]
+# Buckets and site stacks live here. The certificate stack alone is pinned to
+# us-east-1 below, because CloudFront only accepts ACM certificates from there.
+INFRA_REGION = "us-west-2"
+CERT_REGION = "us-east-1"
+
 [tasks]
 dev = "bun run dev"
 build = "bun run build"
@@ -8,3 +14,67 @@ preview = "bun run preview"
 lint = "bun run lint"
 typecheck = "bun run typecheck"
 
+# Deploy targets: each builds the site, syncs dist/client to the target's S3
+# bucket, and invalidates its CloudFront distribution. See scripts/deploy.sh.
+
+[tasks."deploy:blog"]
+description = "Build and deploy to blog.youngbloods.org"
+depends = ["build"]
+run = "scripts/deploy.sh blog.youngbloods.org"
+
+[tasks."deploy:www"]
+description = "Build and deploy to youngbloods.org (and www)"
+depends = ["build"]
+run = "scripts/deploy.sh youngbloods.org"
+
+[tasks."invalidate:blog"]
+description = "Invalidate the blog.youngbloods.org CloudFront cache without redeploying"
+run = """
+id=$(aws cloudformation describe-stacks --region $INFRA_REGION --stack-name site-blog-youngbloods-org \
+  --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" --output text)
+aws cloudfront create-invalidation --distribution-id "$id" --paths "/*"
+"""
+
+[tasks."invalidate:www"]
+description = "Invalidate the youngbloods.org CloudFront cache without redeploying"
+run = """
+id=$(aws cloudformation describe-stacks --region $INFRA_REGION --stack-name site-youngbloods-org \
+  --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" --output text)
+aws cloudfront create-invalidation --distribution-id "$id" --paths "/*"
+"""
+
+# Infrastructure (CloudFormation). Site stacks go to INFRA_REGION; the
+# certificate must be in us-east-1 for CloudFront.
+
+[tasks."infra:cert"]
+description = "Create or update the ACM certificate for youngbloods.org and *.youngbloods.org (us-east-1)"
+run = """
+aws cloudformation deploy --region $CERT_REGION --stack-name youngbloods-org-certificate \
+  --template-file infra/certificate.yaml --no-fail-on-empty-changeset
+"""
+
+# The blog's Route 53 alias records were created by hand on 2026-11-10, in one
+# change that also removed the old GitHub Pages CNAME, so the stack does not
+# own them. Leave CREATE_DNS unset for infra:blog or the update will fail on
+# the existing records.
+[tasks."infra:blog"]
+description = "Create or update the blog.youngbloods.org bucket and distribution"
+run = """
+cert=$(aws cloudformation describe-stacks --region $CERT_REGION --stack-name youngbloods-org-certificate \
+  --query "Stacks[0].Outputs[?OutputKey=='CertificateArn'].OutputValue" --output text)
+aws cloudformation deploy --region $INFRA_REGION --stack-name site-blog-youngbloods-org \
+  --template-file infra/static-site.yaml --no-fail-on-empty-changeset \
+  --parameter-overrides SiteDomain=blog.youngbloods.org BucketName=blog-youngbloods-org-site \
+    CertificateArn="$cert" CreateDnsRecords=${CREATE_DNS:-false}
+"""
+
+[tasks."infra:www"]
+description = "Create or update the youngbloods.org bucket and distribution (serves www too)"
+run = """
+cert=$(aws cloudformation describe-stacks --region $CERT_REGION --stack-name youngbloods-org-certificate \
+  --query "Stacks[0].Outputs[?OutputKey=='CertificateArn'].OutputValue" --output text)
+aws cloudformation deploy --region $INFRA_REGION --stack-name site-youngbloods-org \
+  --template-file infra/static-site.yaml --no-fail-on-empty-changeset \
+  --parameter-overrides SiteDomain=youngbloods.org AlternateDomains=www.youngbloods.org \
+    BucketName=youngbloods-org-site CertificateArn="$cert" CreateDnsRecords=${CREATE_DNS:-false}
+"""
